@@ -1,0 +1,33 @@
+ion-card{
+  margin-top: 30px;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+ion-content{
+  text-align: center;
+}
+ion-card-content{
+  display: flex;
+  flex-direction: column;
+// gap: 10px;
+  margin: 2rem 0rem;
+}
+ion-card-header{
+  margin: 0;
+  padding: 0;
+}
+#logo-duoc{
+  width: 6rem;
+}
+.logo-container{
+  margin: .5rem 0rem;
+}
+ion-item{
+  margin: .5rem 0rem;
+}
+
+#ingresar{
+  height: 2.5rem;
+}
