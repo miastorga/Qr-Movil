@@ -5,25 +5,26 @@
 <!-- </ion-toolbar>
 </ion-header> -->
 
-<ion-content>
-  <ion-card>
-    <div class="logo-container">
-      <img src="../../assets/icon/DuocLogoAzul.png" alt="logo-duoc" srcset="" id="logo-duoc">
-    </div>
+<ion-content color="fondo">
+  <ion-card color="fondo">
+    <!-- cabezera -->
     <ion-card-header>
+      <div class="logo-container">
+        <img src="../../assets/icon/DuocLogoAzul.png" alt="logo-duoc" srcset="" id="logo-duoc">
+      </div>
       <ion-card-title>Iniciar Sesion</ion-card-title>
     </ion-card-header>
-
+    <!-- contenido -->
     <ion-card-content>
       <form [formGroup]="formularioLogin">
         <!-- PERTENECE A LA CLASE formularioLogin, creada en login.page.ts -->
         <ion-item>
-          <ion-label color="primary" position="floating">Usuario </ion-label> <!-- FLOATING ES EL EFECTO -->
+          <ion-label position="floating">Usuario </ion-label> <!-- FLOATING ES EL EFECTO -->
           <ion-input formControlName="nombre"></ion-input> <!-- EL INPUT DEL NOMBRE -->
         </ion-item>
 
         <ion-item>
-          <ion-label color="primary" position="floating">Contraseña </ion-label>
+          <ion-label position="floating">Contraseña </ion-label>
           <ion-input formControlName="contraseña" type="password"></ion-input>
           <!-- "TYPE = PASSWORD" ES PARA QUE MUESTRE ****-->
         </ion-item>
