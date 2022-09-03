@@ -18,36 +18,28 @@
       <form [formGroup]="formularioLogin">
         <!-- PERTENECE A LA CLASE formularioLogin, creada en login.page.ts -->
         <ion-item>
-          <ion-label position="floating"> Nombre de usuario </ion-label> <!-- FLOATING ES EL EFECTO -->
+          <ion-label color="primary" position="floating">Usuario </ion-label> <!-- FLOATING ES EL EFECTO -->
           <ion-input formControlName="nombre"></ion-input> <!-- EL INPUT DEL NOMBRE -->
         </ion-item>
 
         <ion-item>
-          <ion-label position="floating"> Contraseña </ion-label>
+          <ion-label color="primary" position="floating">Contraseña </ion-label>
           <ion-input formControlName="contraseña" type="password"></ion-input>
           <!-- "TYPE = PASSWORD" ES PARA QUE MUESTRE ****-->
         </ion-item>
       </form>
 
-      <!-- BOTON INGRESAR -->
       <br>
       <ion-button expand="block" color="warning" (click)="ingresar()" id="ingresar">
-        <!-- EVENTO INGRESAR-->
         Ingresar
       </ion-button>
-      <!-- FIN BOTON INGRESAR-->
     </ion-card-content>
   </ion-card>
-
 </ion-content>
-<!-- INICIO FOOTER -->
 <!-- <ion-footer>
   <ion-toolbar color="primary">
-    <ion-buttons slot="end"> -->
-<!-- ATRIBUTO PARA QUE EL BOTÓN ESTÉ EN UN DIRECCIÓN. "END" = A LA DERECHA DE LA PANTALLA-->
-<!-- <ion-button expand="full" [routerLink]="['/registro']">Registrarse</ion-button> -->
-<!-- routerLink ES PARA IR A OTRA PÁGINA DE LA APP-->
-<!-- </ion-buttons>
+    <ion-buttons slot="end"> 
+      <ion-button expand="full" [routerLink]="['/registro']">Registrarse</ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-footer> -->
-<!-- FIN FOOTER -->

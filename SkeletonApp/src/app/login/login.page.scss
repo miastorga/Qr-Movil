@@ -11,12 +11,13 @@ ion-content{
 ion-card-content{
   display: flex;
   flex-direction: column;
-// gap: 10px;
-  margin: 2rem 0rem;
 }
 ion-card-header{
   margin: 0;
   padding: 0;
+}
+form{
+  margin-bottom: 2.5rem;
 }
 #logo-duoc{
   width: 6rem;
@@ -30,4 +31,13 @@ ion-item{
 
 #ingresar{
   height: 2.5rem;
+}
+ion-input{
+  // background-color: white;
+}
+ion-label{
+  // background-color: white;
+}
+ion-item{
+  text-align: left;
 }
