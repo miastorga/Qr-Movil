@@ -17,23 +17,30 @@
     <!-- contenido -->
     <ion-card-content>
       <form [formGroup]="formularioLogin">
-        <!-- PERTENECE A LA CLASE formularioLogin, creada en login.page.ts -->
-        <ion-item>
-          <ion-label position="floating">Usuario </ion-label> <!-- FLOATING ES EL EFECTO -->
-          <ion-input formControlName="nombre"></ion-input> <!-- EL INPUT DEL NOMBRE -->
-        </ion-item>
+        <div class="inputs-container">
+          <ion-item>
+            <ion-label position="floating">Usuario </ion-label> <!-- FLOATING ES EL EFECTO -->
+            <ion-input formControlName="nombre" type="email" autocomplete="email" clearInput="true" inputmode="email"
+              value="string">
+            </ion-input>
+            <!-- EL INPUT DEL NOMBRE -->
+          </ion-item>
 
-        <ion-item>
-          <ion-label position="floating">Contraseña </ion-label>
-          <ion-input formControlName="contraseña" type="password"></ion-input>
-          <!-- "TYPE = PASSWORD" ES PARA QUE MUESTRE ****-->
-        </ion-item>
+          <div>
+            <ion-item>
+              <ion-label position="floating">Contraseña </ion-label>
+              <ion-input formControlName="contraseña" type="password" clearInput="true"></ion-input>
+            </ion-item>
+            <a style="float: right; color: white;" routerLink="/registro">
+              ¿Has olvidado tu contraseña?
+            </a>
+          </div>
+        </div>
+        <!-- <br> -->
+        <ion-button expand="block" color="warning" (click)="ingresar()" id="ingresar">
+          Ingresar
+        </ion-button>
       </form>
-
-      <br>
-      <ion-button expand="block" color="warning" (click)="ingresar()" id="ingresar">
-        Ingresar
-      </ion-button>
     </ion-card-content>
   </ion-card>
 </ion-content>
