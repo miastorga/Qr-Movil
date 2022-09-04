@@ -1,12 +1,11 @@
 <!-- <ion-header>
   <ion-toolbar> -->
-<!--  ATRIBUTO "COLOR" ES PARA ASIGNAR COLOR. PRIMARY = AZUL EN EL PROYECTO-->
 <!-- <ion-title>Login</ion-title> -->
 <!-- </ion-toolbar>
 </ion-header> -->
 
-<ion-content color="fondo">
-  <ion-card color="fondo">
+<ion-content>
+  <ion-card>
     <!-- cabezera -->
     <ion-card-header>
       <div class="logo-container">
@@ -31,7 +30,7 @@
               <ion-label position="floating">Contraseña </ion-label>
               <ion-input formControlName="contraseña" type="password" clearInput="true"></ion-input>
             </ion-item>
-            <a style="float: right; color: white;" routerLink="/registro">
+            <a style="float: right; color: white;" routerLink="/recuperar-contrasegna">
               ¿Has olvidado tu contraseña?
             </a>
           </div>
@@ -44,10 +43,3 @@
     </ion-card-content>
   </ion-card>
 </ion-content>
-<!-- <ion-footer>
-  <ion-toolbar color="primary">
-    <ion-buttons slot="end"> 
-      <ion-button expand="full" [routerLink]="['/registro']">Registrarse</ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-footer> -->
