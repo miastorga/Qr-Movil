@@ -24,14 +24,8 @@ ion-card-header {
 	margin: 0;
 	padding: 0;
 }
-ion-label {
-	--background-color: red;
-}
-ion-input {
-	--background-color: blue;
-}
 
-form {
+.form {
 	height: 17rem;
 	display: flex;
 	flex-direction: column;

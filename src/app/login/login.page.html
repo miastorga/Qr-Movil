@@ -15,31 +15,36 @@
     </ion-card-header>
     <!-- contenido -->
     <ion-card-content>
-      <form [formGroup]="formularioLogin">
-        <div class="inputs-container">
-          <ion-item>
-            <ion-label position="floating">Usuario </ion-label> <!-- FLOATING ES EL EFECTO -->
-            <ion-input formControlName="nombre" type="email" autocomplete="email" clearInput="true" inputmode="email"
-              value="string">
-            </ion-input>
-            <!-- EL INPUT DEL NOMBRE -->
-          </ion-item>
+      <!-- <form [formGroup]="formularioLogin"> -->
+      <div class="form">
 
-          <div>
-            <ion-item>
-              <ion-label position="floating" color="dark">Contraseña </ion-label>
-              <ion-input formControlName="contraseña" type="password" clearInput="true"></ion-input>
-            </ion-item>
-            <a style="float: right; color: white;" routerLink="/recuperar-contrasegna">
-              ¿Has olvidado tu contraseña?
-            </a>
-          </div>
+        <div class="inputs-container">
         </div>
-        <!-- <br> -->
-        <ion-button expand="block" color="warning" (click)="ingresar()" id="ingresar" routerLink="/escaner">
+        <ion-item>
+          <ion-label position="floating">Usuario </ion-label> <!-- FLOATING ES EL EFECTO -->
+          <ion-input class="input" [(ngModel)]="user.usuario" type="email" autocomplete="email" clearInput="true"
+            inputmode="email" value="string">
+          </ion-input>
+          <!-- EL INPUT DEL NOMBRE -->
+        </ion-item>
+
+        <div>
+          <ion-item>
+            <ion-label position="floating" color="dark">Contraseña </ion-label>
+            <ion-input [(ngModel)]="user.password" type="password" clearInput="true">
+            </ion-input>
+          </ion-item>
+          <a style="float: right; color: white;" routerLink="/recuperar-contrasegna">
+            ¿Has olvidado tu contraseña?
+          </a>
+        </div>
+        <ion-button expand="block" color="warning" (click)="ingresar()" id="ingresar">
           Ingresar
         </ion-button>
-      </form>
+      </div>
+      <!-- <br> -->
+
+      <!-- </form> -->
     </ion-card-content>
   </ion-card>
 </ion-content>
