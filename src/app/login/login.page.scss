@@ -24,6 +24,13 @@ ion-card-header {
 	margin: 0;
 	padding: 0;
 }
+ion-label {
+	--background-color: red;
+}
+ion-input {
+	--background-color: blue;
+}
+
 form {
 	height: 17rem;
 	display: flex;
@@ -36,8 +43,10 @@ form {
 ion-item {
 	margin: 0.1rem 0rem;
 }
-
-#ingresar {
+ion-card-title {
+	color: white;
+}
+ion-button {
 	height: 2.5rem;
 	color: white;
 }
