@@ -44,7 +44,7 @@ export class LoginPage implements OnInit {
 					user: this.user, // Al estado se asignamos un objeto con clave y valor
 				},
 			}
-			this.router.navigate(['/escaner'], navigationExtras) // navegamos hacia el Home y enviamos información adicional
+			this.router.navigate(['/home'], navigationExtras) // navegamos hacia el Home y enviamos información adicional
 		} else {
 			this.presentToast('Falta ingresar: ' + this.field, 500)
 		}
