@@ -4,7 +4,9 @@
       <ion-toolbar>
         <ion-title>Menu</ion-title>
         <ion-menu-toggle class="ion-padding">
-          <ion-button>Click to close the menu</ion-button>
+          <ion-button>
+            <ion-icon name="close-outline"></ion-icon>
+          </ion-button>
         </ion-menu-toggle>
       </ion-toolbar>
     </ion-header>
@@ -18,13 +20,14 @@
         </ion-item>
         <ion-item>
           <ion-button routerLink="/historial-qrs">
-            Historial
+            <ion-icon name="copy-outline"></ion-icon>
           </ion-button>
         </ion-item>
-        <ion-item>item 3</ion-item>
-        <ion-item>item 4</ion-item>
-        <ion-item>item 5</ion-item>
-        <ion-button (click)=alertaCerrarSesion()>Cerrar sesión<img src="../../../assets/img/logout.png" width="20px"></ion-button>
+        <ion-item>
+          <ion-button (click)=alertaCerrarSesion()>
+            <ion-icon name="log-out-outline"></ion-icon>
+          </ion-button>
+        </ion-item>
       </ion-list>
     </ion-content>
   </ion-menu>
