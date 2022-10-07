@@ -1,36 +1,68 @@
 <ion-content>
+
+  <!-- Inicio menú-->
   <ion-menu contentId="main-content">
+
+    <!-- Inicio header -->
     <ion-header>
       <ion-toolbar>
-        <ion-title>Menu</ion-title>
+        <ion-title></ion-title> <!-- NO PONER TITULO, PORQUE SE SUPERPONE CON EL MENU BAR-->
         <ion-menu-toggle class="ion-padding">
-          <ion-button>
-            <ion-icon name="close-outline"></ion-icon>
-          </ion-button>
+          <ion-button>Cerrar menú</ion-button> <!-- Título del menú -->
         </ion-menu-toggle>
       </ion-toolbar>
     </ion-header>
+    <!-- Fin header-->
+
+    <!-- Inicio content-->
     <ion-content class="ion-padding">
 
+      <!-- Inicio lista de items del menú -->
       <ion-list>
+
+        <!-- Item 1 ir al lector QR -->
         <ion-item>
-          <ion-button routerLink="/escaner">
-            <ion-icon name="qr-code-outline"></ion-icon>
+          <ion-button routerLink="/escaner"> <!-- ir a la pagina "escaner" -->
+            <ion-icon name="qr-code-outline"></ion-icon> <!-- icono QR -->
           </ion-button>
         </ion-item>
+        <!-- Fin item 1 ir al lector QR -->
+
+        <!-- Item 2  ir al historial -->
         <ion-item>
-          <ion-button routerLink="/historial-qrs">
-            <ion-icon name="copy-outline"></ion-icon>
+          <ion-button routerLink="/historial-qrs"> <!-- ir a la pagina "historial" -->
+            Historial
           </ion-button>
         </ion-item>
+        <!-- Fin item 2 ir al historial -->
+
+        <!-- Item 3  ir a compartir QR -->
         <ion-item>
-          <ion-button (click)=alertaCerrarSesion()>
-            <ion-icon name="log-out-outline"></ion-icon>
+          <ion-button routerLink="/compatir-qr">
+            Compatir QR de la clase<!-- ir a la página "compartir-qr" -->
+            <ion-icon name="share-social-outline"></ion-icon> <!-- icono compatir -->
           </ion-button>
         </ion-item>
+        <!-- Fin item 3 ir a compartir QR-->
+
+        <!-- Item cerrar sesión -->
+        <ion-item>
+          <ion-button (click)=alertaCerrarSesion()>Cerrar sesión
+            <ion-icon name="log-out-outline"></ion-icon> <!-- icono logout-->
+          </ion-button>
+        </ion-item>
+        <!-- Fin item cerrar sesión -->
+
       </ion-list>
+      <!-- Fin lista de items del menú-->
+
     </ion-content>
+    <!-- Fin content-->
+
   </ion-menu>
+  <!-- Fin menú-->
+
+
   <div class="ion-page" id="main-content">
     <ion-header>
       <ion-toolbar>
@@ -42,6 +74,9 @@
     </ion-header>
     <ion-content class="ion-padding">
       Aqui los datos del estudiante
+
+      <ion-button routerLink="/compartir-qr"> a compatir qr (DEBO ARREGLAR ESTO)...  NO BORRAR ESTE ENLACE</ion-button>
     </ion-content>
   </div>
+
 </ion-content>

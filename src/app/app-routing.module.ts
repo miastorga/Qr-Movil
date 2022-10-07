@@ -26,6 +26,10 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
+  {
+    path: 'compartir-qr',
+    loadChildren: () => import('./compartir-qr/compartir-qr.module').then( m => m.CompartirQrPageModule)
+  },
 
 ];
 

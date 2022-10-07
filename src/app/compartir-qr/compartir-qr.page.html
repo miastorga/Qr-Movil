@@ -1,0 +1,23 @@
+<!-- Inicio header -->
+<ion-header>
+  <ion-toolbar>
+    <ion-title>compartir-qr</ion-title>
+  </ion-toolbar>
+</ion-header>
+<!-- Fin header -->
+
+<!-- Inicio contenido de la página-->
+<ion-content>
+  <!-- Título de la pag -->
+  <h1>Generador QR</h1>
+
+
+  <qrcode elementType="img" (qrCodeURL)="onCodeChange($event)" [width]="400" qrdata="https://www.youtube.com/watch?v=afpxpnzaA3g" [errorCorrectionLevel]="'H'"></qrcode>
+  
+  <a [href]="url" download="Clase">Descargar código QR</a> <!-- para descargar el QR -->
+
+  <ion-button routerLink="/home"> ir al home
+    <ion-icon name="home-outline"></ion-icon>
+  </ion-button>
+</ion-content>
+<!-- Fin contenido de la pagina -->
