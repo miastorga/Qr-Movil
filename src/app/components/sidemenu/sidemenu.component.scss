@@ -1,0 +1,30 @@
+ion-menu {
+	ion-toolbar {
+		--background: #04284a;
+	}
+}
+ion-menu {
+	ion-content {
+		--background: #042e54;
+	}
+}
+ion-list {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	width: 100%;
+	gap: 10px;
+	background-color: #042e54;
+	ion-item {
+		--background: #04284a;
+		ion-button {
+			ion-icon {
+				margin: 5px 0px 5px 5px;
+			}
+		}
+	}
+}
+#cerrar-sesion {
+	justify-self: center;
+}

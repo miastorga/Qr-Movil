@@ -1,4 +1,5 @@
 .ion-content {
+	// padding-top: 3rem;
 	background-color: var(--ion-color-fondo);
 	display: flex;
 	flex-direction: column;
@@ -21,4 +22,7 @@ ion-item {
 	--background: var(--ion-color-fondo);
 	border: 1px solid white;
 	color: white;
+}
+ion-toolbar {
+	--background: var(--ion-color-fondo);
 }
