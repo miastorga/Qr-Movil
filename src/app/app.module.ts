@@ -8,12 +8,15 @@ import { AppComponent } from './app.component'
 import { AppRoutingModule } from './app-routing.module'
 import { enterAnimation } from './animations/nav-animation'
 
+import { HttpClientModule } from '@angular/common/http'
+
 @NgModule({
 	declarations: [AppComponent],
 	imports: [
 		BrowserModule,
 		IonicModule.forRoot({ navAnimation: enterAnimation }),
 		AppRoutingModule,
+		HttpClientModule,
 	],
 	providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
 	bootstrap: [AppComponent],
