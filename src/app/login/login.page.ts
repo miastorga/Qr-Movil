@@ -8,12 +8,10 @@ import { AlumnosDataService } from '../services/alumnos-data.service'
 	styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-	user = {
-		usuario: '',
-		password: '',
-	}
+	user = {}
 	usuario = ''
 	password = ''
+	buscarAlumno
 	field = ''
 	alumnos = []
 	constructor(
@@ -39,18 +37,18 @@ export class LoginPage implements OnInit {
 			this.presentToast('Bienvenido ' + this.usuario)
 			let navigationExtras: NavigationExtras = {
 				state: {
-					user: this.user, // Al estado se asignamos un objeto con clave y valor
+					user: { user: this.buscarAlumno }, // Al estado se asignamos un objeto con clave y valor
 				},
 			}
 			this.router.navigate(['/home'], navigationExtras)
 		}
 	}
-	validarAlumno(user, pass) {
-		const buscarAlumno = this.alumnos.find((alumno) => alumno.username === user)
+	validarAlumno(user: string, pass: string) {
+		this.buscarAlumno = this.alumnos.find((alumno) => alumno.username === user)
 		const buscarPassword = this.alumnos.find(
 			(alumno) => alumno.password === pass
 		)
-		if (typeof buscarAlumno === 'undefined') {
+		if (typeof this.buscarAlumno === 'undefined') {
 			this.presentToast('Usuario invalido', 900)
 			return false
 		}
@@ -58,6 +56,7 @@ export class LoginPage implements OnInit {
 			this.presentToast('Contraseña invalida', 900)
 			return false
 		}
+		console.log(this.buscarAlumno)
 		return true
 	}
 	async presentToast(msg: string, duracion?: number) {

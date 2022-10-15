@@ -23,9 +23,8 @@
         <!-- Item 1 ir al lector QR -->
         <ion-item>
           <ion-button routerLink="/escaner" color="warning">
-            <!-- ir a la pagina "escaner" -->
             Escanear
-            <ion-icon name="qr-code-outline"></ion-icon> <!-- icono QR -->
+            <ion-icon name="qr-code-outline"></ion-icon>
           </ion-button>
         </ion-item>
         <!-- Fin item 1 ir al lector QR -->
@@ -33,9 +32,8 @@
         <!-- Item 2  ir al historial -->
         <ion-item>
           <ion-button routerLink="/historial-qrs" color="warning">
-            <!-- ir a la pagina "historial" -->
             Historial
-            <ion-icon name="copy-outline"></ion-icon> <!-- Icono del historial -->
+            <ion-icon name="copy-outline"></ion-icon>
           </ion-button>
         </ion-item>
         <!-- Fin item 2 ir al historial -->
@@ -44,8 +42,7 @@
         <ion-item>
           <ion-button routerLink="/compartir-qr" color="warning">
             Compatir QR
-            <!-- ir a la página "compartir-qr" -->
-            <ion-icon name="share-social-outline"></ion-icon> <!-- icono compatir -->
+            <ion-icon name="share-social-outline"></ion-icon>
           </ion-button>
         </ion-item>
         <!-- Fin item 3 ir a compartir QR-->
@@ -53,7 +50,7 @@
         <!-- Item cerrar sesión -->
         <ion-item id="cerrar-sesion">
           <ion-button (click)=alertaCerrarSesion() color="warning">Cerrar sesión
-            <ion-icon name="log-out-outline"></ion-icon> <!-- icono logout-->
+            <ion-icon name="log-out-outline"></ion-icon>
           </ion-button>
         </ion-item>
         <!-- Fin item cerrar sesión -->
@@ -78,8 +75,12 @@
       </ion-toolbar>
     </ion-header>
     <ion-content class="ion-padding">
-      Aqui los datos del estudiante
-
+      <h1>
+        {{userName}}
+      </h1>
+      <h4>
+        {{nombre}}
+      </h4>
     </ion-content>
   </div>
 

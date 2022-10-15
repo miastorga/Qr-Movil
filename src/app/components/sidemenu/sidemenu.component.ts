@@ -1,23 +1,21 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, Input } from '@angular/core'
 import { AlertController } from '@ionic/angular'
 import { Router } from '@angular/router'
-import { BrowserModule, SafeUrl } from '@angular/platform-browser'
-
+import { SafeUrl } from '@angular/platform-browser'
 @Component({
 	selector: 'app-sidemenu',
 	templateUrl: './sidemenu.component.html',
 	styleUrls: ['./sidemenu.component.scss'],
 })
-export class SidemenuComponent implements OnInit {
+export class SidemenuComponent {
+	@Input() userName
+	@Input() nombre
 	constructor(
 		public alertController: AlertController,
 		private router: Router
 	) {}
 
-	ngOnInit() {}
-
 	// Inicio evento cerrar sesión
-
 	// Si en la el alertController apretas click fuera del cuadro
 	// El programa entenderá que quieres seguir en el menú
 	async alertaCerrarSesion() {

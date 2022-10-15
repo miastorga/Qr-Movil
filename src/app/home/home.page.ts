@@ -1,19 +1,21 @@
-import { Component } from '@angular/core'
-import { Router } from '@angular/router'
-import { AlertController } from '@ionic/angular';
+import { Component, OnInit } from '@angular/core'
+import { ActivatedRoute, Router } from '@angular/router'
 @Component({
 	selector: 'app-home',
 	templateUrl: './home.page.html',
 	styleUrls: ['./home.page.scss'],
 })
 export class HomePage {
-	constructor(private router: Router) {
-		this.router.navigate(['home/sidemenu'])
-	}
-	segmentChanged($event) {
-		console.log($event)
-		const direccion = $event.detail.value
-		console.log(direccion)
-		this.router.navigate(['home/' + direccion])
+	user: any
+	userName
+	nombre
+	constructor(private activeroute: ActivatedRoute, private router: Router) {
+		this.activeroute.queryParams.subscribe((params) => {
+			if (this.router.getCurrentNavigation().extras.state) {
+				this.user = this.router.getCurrentNavigation().extras.state.user
+				this.userName = this.user.user.username
+				this.nombre = this.user.user.nombre
+			}
+		})
 	}
 }
