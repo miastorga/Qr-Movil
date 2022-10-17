@@ -56,7 +56,6 @@ export class LoginPage implements OnInit {
 			this.presentToast('Contraseña invalida', 900)
 			return false
 		}
-		console.log(this.buscarAlumno)
 		return true
 	}
 	async presentToast(msg: string, duracion?: number) {

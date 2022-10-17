@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component } from '@angular/core'
 import { ActivatedRoute, Router } from '@angular/router'
 @Component({
 	selector: 'app-home',
@@ -10,7 +10,7 @@ export class HomePage {
 	userName
 	nombre
 	constructor(private activeroute: ActivatedRoute, private router: Router) {
-		this.activeroute.queryParams.subscribe((params) => {
+		this.activeroute.queryParams.subscribe(() => {
 			if (this.router.getCurrentNavigation().extras.state) {
 				this.user = this.router.getCurrentNavigation().extras.state.user
 				this.userName = this.user.user.username

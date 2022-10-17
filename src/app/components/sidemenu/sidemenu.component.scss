@@ -21,6 +21,8 @@ ion-list {
 	ion-item {
 		--background: #042e54;
 		ion-button {
+			text-transform: capitalize;
+			font-size: 13px;
 			ion-icon {
 				margin: 5px 0px 5px 5px;
 			}
@@ -28,22 +30,40 @@ ion-list {
 	}
 }
 
-	//Cerrar sesión
+//Cerrar sesión
 #cerrar-sesion {
 	justify-self: center;
 }
-	//Fin cerrar sesión
-
-
-	//Inicio datos usuario
-#datosUsuario{
-	justify-self: center;
+//Fin cerrar sesión
+// boton cerrar sidemenu
+ion-icon[name='close-circle'] {
+	color: white;
+	font-size: 26px;
+	margin-left: 16px;
 }
-	//Fin datos usuario
-
-	//Imagen usuario
-img{
-	width: 80%;
-	height: 30%;
+//Inicio datos usuario
+.datosUsuario {
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: column;
 }
-	//Fin imagen usuario
+//Fin datos usuario
+.user-profile {
+	text-align: center;
+	margin: 15px;
+	img {
+		height: 8rem;
+		border-radius: 50%;
+	}
+}
+
+.bienvenido > p {
+	text-align: center;
+	font-size: 1rem;
+	margin-bottom: 0px;
+}
+#nombre {
+	font-size: 1rem;
+	text-align: center;
+	text-transform: capitalize;
+}

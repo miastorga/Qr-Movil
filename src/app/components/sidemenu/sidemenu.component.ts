@@ -8,8 +8,8 @@ import { SafeUrl } from '@angular/platform-browser'
 	styleUrls: ['./sidemenu.component.scss'],
 })
 export class SidemenuComponent {
-	@Input() userName
-	@Input() nombre
+	@Input() userName: string
+	@Input() nombre: string
 	constructor(
 		public alertController: AlertController,
 		private router: Router

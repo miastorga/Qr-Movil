@@ -1,14 +1,15 @@
 <ion-content class="container">
 
   <!-- Inicio menú-->
-  <ion-menu contentId="main-content" type="push">
+  <ion-menu contentId="main-content" type="overlay">
 
     <!-- Inicio header -->
     <ion-header>
       <ion-toolbar>
         <ion-title></ion-title> <!-- NO PONER TITULO, PORQUE SE SUPERPONE CON EL MENU BAR-->
         <ion-menu-toggle class="ion-padding">
-          <ion-button>Cerrar menú</ion-button> <!-- Título del menú -->
+          <!-- <ion-button>Cerrar menú</ion-button> Título del menú -->
+          <ion-icon name="close-circle"></ion-icon>
         </ion-menu-toggle>
       </ion-toolbar>
     </ion-header>
@@ -95,33 +96,45 @@
     </ion-header>
     <ion-content class="ion-padding">
 
-      <img src="../../../assets/img/usuario sin fondo.png" alt="">
+      <div class="bienvenido">
+        <p>¡Bienvenido {{userName}}!</p>
+      </div>
+      <div class="user-profile">
+        <!-- <img src="../../../assets/img/usuario sin fondo.png" alt=""> -->
+        <img src='https://avatars.dicebear.com/api/initials/{{userName}}.svg' alt="">
+      </div>
 
+      <p id="nombre">
+        {{nombre}}
+      </p>
       <!-- Inicio datos usuario -->
-    <form classname="datosUsuario">
+      <form class="datosUsuario">
 
-      <!-- Saludar usuario -->
-      <p>¡Bienvenido {{userName}}!</p>
+        <!-- Saludar usuario -->
 
-      <!-- Nombre usuario + icono -->
-      <p> <ion-icon name="person-circle-outline"></ion-icon>
-        Nombre de usuario: {{userName}}</p>
+        <!-- Nombre usuario + icono -->
+        <p>
+          <ion-icon name="person-circle-outline"></ion-icon>
+          {{userName}}
+        </p>
 
-      <!-- Nombre completo + icono -->
-      <p> <ion-icon name="person-outline"></ion-icon>
-        Nombre completo: {{nombre}}</p>
+        <!-- Nombre completo + icono -->
 
-      <!-- Correo institucional = nombre de usuario + @duocuc.cl -->
-      <p> <ion-icon name="mail-outline"></ion-icon>
-        Correo Institucional: {{userName}}@duocuc.cl</p>
+        <!-- Correo institucional = nombre de usuario + @duocuc.cl -->
+        <p>
+          <ion-icon name="mail-outline"></ion-icon>
+          {{userName}}@duocuc.cl
+        </p>
 
-      <!-- Carrera -->
-      <p> <ion-icon name="book-outline"></ion-icon>
-        Carrera: Analista Programador Computacional</p>
+        <!-- Carrera -->
+        <p>
+          <ion-icon name="book-outline"></ion-icon>
+          Analista Programador Computacional
+        </p>
 
-    </form>
-    <!-- Fin datos usuario -->
-    
+      </form>
+      <!-- Fin datos usuario -->
+
     </ion-content>
   </div>
 
