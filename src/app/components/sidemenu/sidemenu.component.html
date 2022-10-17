@@ -47,9 +47,28 @@
         </ion-item>
         <!-- Fin item 3 ir a compartir QR-->
 
+        <!-- Item error 404 -->
+        <ion-item>
+          <ion-button routerLink="/error404" color="warning">
+            Error 404
+            <ion-icon name="bug-outline"></ion-icon> <!-- Icono bug -->
+          </ion-button>
+        </ion-item>
+        <!-- Fin item error 404-->
+
+        <!-- Item recuperar contraseña -->
+        <ion-item>
+          <ion-button routerLink="/recuperar-contrasegna" color="warning">
+            recuperar contraseña
+            <ion-icon name="lock-closed-outline"></ion-icon>
+          </ion-button>
+        </ion-item>
+        <!-- Fin recuperar contraseña -->
+
         <!-- Item cerrar sesión -->
         <ion-item id="cerrar-sesion">
-          <ion-button (click)=alertaCerrarSesion() color="warning">Cerrar sesión
+          <ion-button (click)=alertaCerrarSesion() color="warning">
+            Cerrar sesión
             <ion-icon name="log-out-outline"></ion-icon>
           </ion-button>
         </ion-item>
@@ -75,12 +94,34 @@
       </ion-toolbar>
     </ion-header>
     <ion-content class="ion-padding">
-      <h1>
-        {{userName}}
-      </h1>
-      <h4>
-        {{nombre}}
-      </h4>
+
+      <img src="../../../assets/img/usuario sin fondo.png" alt="">
+
+      <!-- Inicio datos usuario -->
+    <form classname="datosUsuario">
+
+      <!-- Saludar usuario -->
+      <p>¡Bienvenido {{userName}}!</p>
+
+      <!-- Nombre usuario + icono -->
+      <p> <ion-icon name="person-circle-outline"></ion-icon>
+        Nombre de usuario: {{userName}}</p>
+
+      <!-- Nombre completo + icono -->
+      <p> <ion-icon name="person-outline"></ion-icon>
+        Nombre completo: {{nombre}}</p>
+
+      <!-- Correo institucional = nombre de usuario + @duocuc.cl -->
+      <p> <ion-icon name="mail-outline"></ion-icon>
+        Correo Institucional: {{userName}}@duocuc.cl</p>
+
+      <!-- Carrera -->
+      <p> <ion-icon name="book-outline"></ion-icon>
+        Carrera: Analista Programador Computacional</p>
+
+    </form>
+    <!-- Fin datos usuario -->
+    
     </ion-content>
   </div>
 

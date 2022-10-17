@@ -3,11 +3,13 @@ ion-menu {
 		--background: #04284a;
 	}
 }
+
 ion-menu {
 	ion-content {
 		--background: #042e54;
 	}
 }
+
 ion-list {
 	height: 100%;
 	display: flex;
@@ -25,6 +27,23 @@ ion-list {
 		}
 	}
 }
+
+	//Cerrar sesión
 #cerrar-sesion {
 	justify-self: center;
 }
+	//Fin cerrar sesión
+
+
+	//Inicio datos usuario
+#datosUsuario{
+	justify-self: center;
+}
+	//Fin datos usuario
+
+	//Imagen usuario
+img{
+	width: 80%;
+	height: 30%;
+}
+	//Fin imagen usuario
