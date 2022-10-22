@@ -10,8 +10,9 @@
 <!-- FIN HEADER-->
 
 <ion-content>
-  <!-- Inicio botón escanear QR -->
-  <ion-button (click)="scan()">Escanear código</ion-button>
-  {{codigo}}
-  <!-- Fin boton escanear QR -->
+  <ion-item *ngIf="scannedResult">
+    <ion-label>
+      {{scannedResult}}
+    </ion-label>
+  </ion-item>
 </ion-content>
