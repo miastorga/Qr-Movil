@@ -96,21 +96,26 @@
     </ion-header>
     <ion-content class="ion-padding">
 
+      <!-- Inicio saludar usuario -->
       <div class="bienvenido">
         <p>¡Bienvenido {{userName}}!</p>
       </div>
+      <!-- Fin saludar usuario -->
+
+      <!-- Inicio mostrar iniciales usuario -->
       <div class="user-profile">
-        <!-- <img src="../../../assets/img/usuario sin fondo.png" alt=""> -->
         <img src='https://avatars.dicebear.com/api/initials/{{userName}}.svg' alt="">
       </div>
+      <!-- Fin omstrar iniciales usuario -->
 
+      <!-- Nombre completo del usuario -->
       <p id="nombre">
         {{nombre}}
       </p>
+      <!-- Fin nombre completo del usuario -->
+
       <!-- Inicio datos usuario -->
       <form class="datosUsuario">
-
-        <!-- Saludar usuario -->
 
         <!-- Nombre usuario + icono -->
         <p>
@@ -118,15 +123,13 @@
           {{userName}}
         </p>
 
-        <!-- Nombre completo + icono -->
-
         <!-- Correo institucional = nombre de usuario + @duocuc.cl -->
         <p>
           <ion-icon name="mail-outline"></ion-icon>
           {{userName}}@duocuc.cl
         </p>
 
-        <!-- Carrera -->
+        <!-- Carrera + icono -->
         <p>
           <ion-icon name="book-outline"></ion-icon>
           Analista Programador Computacional
