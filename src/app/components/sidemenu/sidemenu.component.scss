@@ -23,6 +23,7 @@ ion-list {
 		ion-button {
 			text-transform: capitalize;
 			font-size: 13px;
+			width: 100%;
 			ion-icon {
 				margin: 5px 0px 5px 5px;
 			}
@@ -66,4 +67,9 @@ ion-icon[name='close-circle'] {
 	font-size: 1rem;
 	text-align: center;
 	text-transform: capitalize;
+}
+p {
+	ion-icon {
+		font-size: 20px;
+	}
 }
