@@ -22,7 +22,7 @@ ion-list {
 		--background: #042e54;
 		ion-button {
 			text-transform: capitalize;
-			font-size: 13px;
+			font-size: 14px;
 			width: 100%;
 			ion-icon {
 				margin: 5px 0px 5px 5px;
@@ -33,7 +33,7 @@ ion-list {
 
 //Cerrar sesión
 #cerrar-sesion {
-	justify-self: center;
+	margin-top: auto;
 }
 //Fin cerrar sesión
 // boton cerrar sidemenu
@@ -47,6 +47,14 @@ ion-icon[name='close-circle'] {
 	display: flex;
 	justify-content: flex-start;
 	flex-direction: column;
+	p {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		ion-icon {
+			font-size: 20px;
+		}
+	}
 }
 //Fin datos usuario
 .user-profile {
@@ -67,9 +75,4 @@ ion-icon[name='close-circle'] {
 	font-size: 1rem;
 	text-align: center;
 	text-transform: capitalize;
-}
-p {
-	ion-icon {
-		font-size: 20px;
-	}
 }

@@ -14,7 +14,6 @@ export class SidemenuComponent {
 		public alertController: AlertController,
 		private router: Router
 	) {}
-
 	// Inicio evento cerrar sesión
 	// Si en la el alertController apretas click fuera del cuadro
 	// El programa entenderá que quieres seguir en el menú
