@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core'
 import { Routes, RouterModule } from '@angular/router'
-import { SidemenuComponent } from '../components/sidemenu/sidemenu.component'
+import { SidemenuComponent } from '../../components/sidemenu/sidemenu.component'
 
 import { HomePage } from './home.page'
 

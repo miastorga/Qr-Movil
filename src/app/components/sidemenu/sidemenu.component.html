@@ -6,29 +6,21 @@
     <!-- Inicio header -->
     <ion-header>
       <ion-toolbar>
-        <ion-title></ion-title> <!-- NO PONER TITULO, PORQUE SE SUPERPONE CON EL MENU BAR-->
-        <ion-menu-toggle class="ion-padding">
-          <!-- <ion-button>Cerrar menú</ion-button> Título del menú -->
-          <ion-icon name="close-circle"></ion-icon>
-        </ion-menu-toggle>
+        <ion-title>Menu</ion-title> <!-- NO PONER TITULO, PORQUE SE SUPERPONE CON EL MENU BAR-->
       </ion-toolbar>
     </ion-header>
-    <!-- Fin header-->
 
     <!-- Inicio content-->
     <ion-content class="ion-padding">
 
       <!-- Inicio lista de items del menú -->
       <ion-list>
-
-        <!-- Item 1 ir al lector QR -->
-        <ion-item>
-          <ion-button routerLink="/escaner" color="warning" expand="full" shape="round" size="default">
+        <ion-button routerLink="/escaner" color="light" expand="full" size="default">
+          <ion-icon name="qr-code-outline" set></ion-icon>
+          <p>
             Escanear
-            <ion-icon name="qr-code-outline"></ion-icon>
-          </ion-button>
-        </ion-item>
-        <!-- Fin item 1 ir al lector QR -->
+          </p>
+        </ion-button>
 
         <!-- Item 2  ir al historial -->
         <!-- <ion-item>
@@ -40,30 +32,30 @@
         <!-- Fin item 2 ir al historial -->
 
         <!-- Item 3  ir a compartir QR -->
-        <ion-item>
-          <ion-button routerLink="/compartir-qr" color="warning" shape="round" size="default">
+        <ion-button routerLink="/compartir-qr" color="light" size="default">
+          <ion-icon name="share-social-outline"></ion-icon>
+          <p>
             Compatir QR
-            <ion-icon name="share-social-outline"></ion-icon>
-          </ion-button>
-        </ion-item>
+          </p>
+        </ion-button>
         <!-- Fin item 3 ir a compartir QR-->
 
         <!-- Item error 404 -->
-        <ion-item>
-          <ion-button routerLink="/error404" color="warning" shape="round" size="default">
+        <ion-button routerLink="/error404" color="light" size="default">
+          <ion-icon name="bug-outline"></ion-icon> <!-- Icono bug -->
+          <p>
             Error 404
-            <ion-icon name="bug-outline"></ion-icon> <!-- Icono bug -->
-          </ion-button>
-        </ion-item>
+          </p>
+        </ion-button>
         <!-- Fin item error 404-->
 
         <!-- Item cerrar sesión -->
-        <ion-item id="cerrar-sesion">
-          <ion-button (click)=alertaCerrarSesion() color="warning" shape="round" size="default">
+        <ion-button (click)=alertaCerrarSesion() color="light" size="default" id="cerrar-sesion">
+          <ion-icon name="log-out-outline"></ion-icon>
+          <p>
             Cerrar sesión
-            <ion-icon name="log-out-outline"></ion-icon>
-          </ion-button>
-        </ion-item>
+          </p>
+        </ion-button>
         <!-- Fin item cerrar sesión -->
 
       </ion-list>
@@ -78,56 +70,41 @@
 
   <div class="ion-page" id="main-content">
     <ion-header>
-      <ion-toolbar>
+      <ion-toolbar style="--background: #F1B634;">
         <ion-buttons slot="start">
-          <ion-menu-button></ion-menu-button>
+          <ion-menu-button color="dark"></ion-menu-button>
         </ion-buttons>
         <ion-title>Inicio</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content class="ion-padding">
 
-      <!-- Inicio saludar usuario -->
-      <div class="bienvenido">
-        <p>¡Bienvenido {{userName}}!</p>
-      </div>
-      <!-- Fin saludar usuario -->
-
-      <!-- Inicio mostrar iniciales usuario -->
       <div class="user-profile">
         <img src='https://avatars.dicebear.com/api/initials/{{userName}}.svg' alt="">
       </div>
-      <!-- Fin omstrar iniciales usuario -->
 
-      <!-- Nombre completo del usuario -->
       <p id="nombre">
         {{nombre}}
       </p>
-      <!-- Fin nombre completo del usuario -->
 
-      <!-- Inicio datos usuario -->
       <form class="datosUsuario">
 
-        <!-- Nombre usuario + icono -->
         <p>
           <ion-icon name="person-circle-outline"></ion-icon>
           {{userName}}
         </p>
 
-        <!-- Correo institucional = nombre de usuario + @duocuc.cl -->
         <p>
           <ion-icon name="mail-outline"></ion-icon>
           {{userName}}@duocuc.cl
         </p>
 
-        <!-- Carrera + icono -->
         <p>
           <ion-icon name="book-outline"></ion-icon>
           Analista Programador Computacional
         </p>
 
       </form>
-      <!-- Fin datos usuario -->
 
     </ion-content>
   </div>

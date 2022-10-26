@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular'
 import { HomePageRoutingModule } from './home-routing.module'
 
 import { HomePage } from './home.page'
-import { SidemenuComponent } from '../components/sidemenu/sidemenu.component'
+import { SidemenuComponent } from '../../components/sidemenu/sidemenu.component'
 
 @NgModule({
 	imports: [CommonModule, FormsModule, IonicModule, HomePageRoutingModule],

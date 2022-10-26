@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core'
 import { Router, NavigationExtras } from '@angular/router'
 import { ToastController } from '@ionic/angular'
-import { AlumnosDataService } from '../services/alumnos-data.service'
+import { AlumnosDataService } from '../../services/alumnos-data.service'
+import { FirestoreService } from '../../services/firestore.service'
+import { Historial } from './models'
+
 @Component({
 	selector: 'app-login',
 	templateUrl: './login.page.html',
@@ -14,10 +17,19 @@ export class LoginPage implements OnInit {
 	buscarAlumno
 	field = ''
 	alumnos = []
+
+	historial: Historial = {
+		id: '',
+		detalles: '',
+		hora: new Date(),
+		profesor: '',
+		siglas: '',
+	}
 	constructor(
 		private router: Router,
 		public toastController: ToastController,
-		private alumnosService: AlumnosDataService
+		private alumnosService: AlumnosDataService,
+		public database: FirestoreService
 	) {}
 
 	ngOnInit() {
@@ -31,7 +43,6 @@ export class LoginPage implements OnInit {
 			})
 		})
 	}
-
 	ingresar() {
 		if (this.validarAlumno(this.usuario, this.password)) {
 			this.presentToast('Bienvenido ' + this.usuario)
@@ -40,6 +51,16 @@ export class LoginPage implements OnInit {
 					user: { user: this.buscarAlumno }, // Al estado se asignamos un objeto con clave y valor
 				},
 			}
+			this.historial = {
+				detalles: 'detalles',
+				hora: new Date(),
+				profesor: 'jesus jesus jesus',
+				siglas: '55555',
+				id: this.database.getId(),
+			}
+			const path = 'Alumnos'
+			const id = this.database.getId()
+			this.database.createDocument(this.historial, path, id)
 			this.router.navigate(['/home'], navigationExtras)
 		}
 	}

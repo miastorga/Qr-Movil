@@ -7,44 +7,42 @@ const routes: Routes = [
 		redirectTo: 'login',
 		pathMatch: 'full',
 	},
+
 	{
 		path: 'login',
 		loadChildren: () =>
-			import('./login/login.module').then((m) => m.LoginPageModule),
+			import('./pages/login/login.module').then((m) => m.LoginPageModule),
 	},
 	{
 		path: 'recuperar-contrasegna',
 		loadChildren: () =>
-			import('./recuperar-contrasegna/recuperar-contrasegna.module').then(
+			import('./pages/recuperar-contrasegna/recuperar-contrasegna.module').then(
 				(m) => m.RecuperarContrasegnaPageModule
 			),
 	},
 	{
 		path: 'escaner',
 		loadChildren: () =>
-			import('./escaner/escaner.module').then((m) => m.EscanerPageModule),
+			import('./pages/escaner/escaner.module').then((m) => m.EscanerPageModule),
 	},
 	{
 		path: 'home',
 		loadChildren: () =>
-			import('./home/home.module').then((m) => m.HomePageModule),
+			import('./pages/home/home.module').then((m) => m.HomePageModule),
 	},
 	{
 		path: 'compartir-qr',
 		loadChildren: () =>
-			import('./compartir-qr/compartir-qr.module').then(
+			import('./pages/compartir-qr/compartir-qr.module').then(
 				(m) => m.CompartirQrPageModule
 			),
 	},
 	{
-		path: '**', // todo lo que no sea esta página, te dirigirá a esta
+		path: '**',
 		loadChildren: () =>
-			import('./not-found/not-found.module').then((m) => m.NotFoundPageModule),
-	},
-	{
-		path: 'not-found', //pagina normal not-found. la que aparece en el menú
-		loadChildren: () =>
-			import('./not-found/not-found.module').then((m) => m.NotFoundPageModule),
+			import('./pages/error404/error404.module').then(
+				(m) => m.Error404PageModule
+			),
 	},
 ]
 

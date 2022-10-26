@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { NotFoundPage } from './not-found.page';
+import { SetAlumnosComponent } from './set-alumnos.component';
 
-describe('NotFoundPage', () => {
-  let component: NotFoundPage;
-  let fixture: ComponentFixture<NotFoundPage>;
+describe('SetAlumnosComponent', () => {
+  let component: SetAlumnosComponent;
+  let fixture: ComponentFixture<SetAlumnosComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ NotFoundPage ],
+      declarations: [ SetAlumnosComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(NotFoundPage);
+    fixture = TestBed.createComponent(SetAlumnosComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

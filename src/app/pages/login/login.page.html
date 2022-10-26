@@ -3,19 +3,18 @@
     <!-- cabecera -->
     <ion-card-header>
       <div class="logo-container">
-        <img src="../../assets/icon/DuocLogoAzul.png" alt="logo-duoc" srcset="" id="logo-duoc">
+        <ion-img src="../../../assets/img/Logo_DuocUC.svg.png" id="logo-duoc"></ion-img>
       </div>
-      <ion-card-title>Iniciar Sesión</ion-card-title>
     </ion-card-header>
 
     <!-- contenido -->
     <ion-card-content>
       <div class="form">
 
-        <div class="inputs-container">
-        </div>
         <ion-item>
-          <ion-label position="floating">Usuario </ion-label> <!-- FLOATING ES EL EFECTO -->
+          <ion-label position="floating">
+            Usuario
+          </ion-label> <!-- FLOATING ES EL EFECTO -->
           <ion-input class="input" [(ngModel)]="usuario" type="text" clearInput="true" value="string">
           </ion-input>
           <!-- EL INPUT DEL NOMBRE -->
@@ -27,19 +26,14 @@
             <ion-input [(ngModel)]="password" type="password" clearInput="true">
             </ion-input>
           </ion-item>
-          <a style="float: right; color: white;" routerLink="/recuperar-contrasegna">
+          <a style="float: right; color: black; margin-top: 1rem;" routerLink="/recuperar-contrasegna">
             ¿Has olvidado tu contraseña?
           </a>
         </div>
-        <ion-button expand="block" color="warning" (click)="ingresar()" id="ingresar">
+        <ion-button expand="block" (click)="ingresar()" id="ingresar">
           Ingresar
         </ion-button>
       </div>
-
-      <!-- INICIO VERSIÓN -->
-      <p>Versión 1.0</p>
-      <!-- FIN VERSIÓN -->
-
     </ion-card-content>
   </ion-card>
 </ion-content>
