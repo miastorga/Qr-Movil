@@ -10,12 +10,12 @@ export class HomePage {
 	userName
 	nombre
 	constructor(private activeroute: ActivatedRoute, private router: Router) {
-		this.activeroute.queryParams.subscribe(() => {
-			if (this.router.getCurrentNavigation().extras.state) {
-				this.user = this.router.getCurrentNavigation().extras.state.user
-				this.userName = this.user.user.username
-				this.nombre = this.user.user.nombre
-			}
-		})
+		// this.activeroute.queryParams.subscribe(() => {
+		// 	if (this.router.getCurrentNavigation().extras.state) {
+		// 		this.user = this.router.getCurrentNavigation().extras.state.user
+		// 		this.userName = this.user.user.username
+		// 		this.nombre = this.user.user.nombre
+		// 	}
+		// })
 	}
 }

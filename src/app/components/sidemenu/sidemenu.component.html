@@ -1,19 +1,15 @@
 <ion-content class="container">
 
-  <!-- Inicio menú-->
   <ion-menu contentId="main-content" type="overlay">
 
-    <!-- Inicio header -->
     <ion-header>
       <ion-toolbar>
-        <ion-title>Menu</ion-title> <!-- NO PONER TITULO, PORQUE SE SUPERPONE CON EL MENU BAR-->
+        <ion-title>Menu</ion-title>
       </ion-toolbar>
     </ion-header>
 
-    <!-- Inicio content-->
     <ion-content class="ion-padding">
 
-      <!-- Inicio lista de items del menú -->
       <ion-list>
         <ion-button routerLink="/escaner" color="light" expand="full" size="default">
           <ion-icon name="qr-code-outline" set></ion-icon>
@@ -31,41 +27,32 @@
         </ion-item> -->
         <!-- Fin item 2 ir al historial -->
 
-        <!-- Item 3  ir a compartir QR -->
         <ion-button routerLink="/compartir-qr" color="light" size="default">
           <ion-icon name="share-social-outline"></ion-icon>
           <p>
             Compatir QR
           </p>
         </ion-button>
-        <!-- Fin item 3 ir a compartir QR-->
 
-        <!-- Item error 404 -->
         <ion-button routerLink="/error404" color="light" size="default">
-          <ion-icon name="bug-outline"></ion-icon> <!-- Icono bug -->
+          <ion-icon name="bug-outline"></ion-icon>
           <p>
             Error 404
           </p>
         </ion-button>
-        <!-- Fin item error 404-->
 
-        <!-- Item cerrar sesión -->
-        <ion-button (click)=alertaCerrarSesion() color="light" size="default" id="cerrar-sesion">
+        <ion-button (click)=cerrarSesion() color="light" size="default" id="cerrar-sesion">
           <ion-icon name="log-out-outline"></ion-icon>
           <p>
             Cerrar sesión
           </p>
         </ion-button>
-        <!-- Fin item cerrar sesión -->
 
       </ion-list>
-      <!-- Fin lista de items del menú-->
 
     </ion-content>
-    <!-- Fin content-->
 
   </ion-menu>
-  <!-- Fin menú-->
 
 
   <div class="ion-page" id="main-content">

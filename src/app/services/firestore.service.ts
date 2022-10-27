@@ -12,8 +12,8 @@ export class FirestoreService {
 		return collection.doc(id).set(data)
 	}
 
-	getDocument(path: string, id: string) {
-		const collection = this.database.collection(path)
+	getDocument<T>(path: string, id: string) {
+		const collection = this.database.collection<T>(path)
 		return collection.doc(id).valueChanges()
 	}
 

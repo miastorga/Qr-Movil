@@ -2,6 +2,10 @@ import { Component, Input } from '@angular/core'
 import { AlertController } from '@ionic/angular'
 import { Router } from '@angular/router'
 import { SafeUrl } from '@angular/platform-browser'
+import { FirebaseauthService } from 'src/app/services/firebaseauth.service'
+import { Alumno } from 'src/app/interfaces'
+import { FirestoreService } from 'src/app/services/firestore.service'
+import { Subscription } from 'rxjs'
 @Component({
 	selector: 'app-sidemenu',
 	templateUrl: './sidemenu.component.html',
@@ -10,14 +14,26 @@ import { SafeUrl } from '@angular/platform-browser'
 export class SidemenuComponent {
 	@Input() userName: string
 	@Input() nombre: string
+
+	alumno: Alumno = {
+		correo: '',
+		foto: '',
+		historial_qrs: [],
+		id: '',
+		nombre: '',
+		username: '',
+	}
+	suscriberUserInfo: Subscription
 	constructor(
 		public alertController: AlertController,
-		private router: Router
+		private router: Router,
+		public firebaseAuthService: FirebaseauthService,
+		public firestoreService: FirestoreService
 	) {}
 	// Inicio evento cerrar sesión
 	// Si en la el alertController apretas click fuera del cuadro
 	// El programa entenderá que quieres seguir en el menú
-	async alertaCerrarSesion() {
+	async cerrarSesion() {
 		const alert = await this.alertController.create({
 			cssClass: 'my-custom-class',
 			header: 'Atención',
@@ -31,8 +47,10 @@ export class SidemenuComponent {
 				},
 				{
 					text: 'Si',
-					handler: () => {
-						localStorage.removeItem('ingresado')
+					handler: async () => {
+						this.firebaseAuthService.logOut()
+						//TODO unsubcribe no funciona ARREGLAR
+						this.suscriberUserInfo.unsubscribe()
 						this.router.navigate(['/login'])
 					},
 				},
@@ -41,12 +59,18 @@ export class SidemenuComponent {
 
 		await alert.present()
 	}
-	// fin evento cerrar sesión
 
-	//Inicio Transforma un link a QR
 	url: SafeUrl = ''
 	onCodeChange(url: SafeUrl) {
 		this.url = url
 	}
-	//Fin Transforma un link a QR
+
+	getUserInfo(uid: string) {
+		const path = 'Cliente'
+		this.suscriberUserInfo = this.firestoreService
+			.getDocument<Alumno>(path, uid)
+			.subscribe((res) => {
+				this.alumno = res
+			})
+	}
 }

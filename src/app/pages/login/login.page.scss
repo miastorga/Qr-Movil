@@ -16,7 +16,7 @@ ion-content {
 ion-card-content {
 	display: flex;
 	flex-direction: column;
-	background-color: #f1b634;
+	// background-color: #f1b634;
 	margin-top: 2rem;
 	padding: 10px;
 	border-radius: 20px 0px;
@@ -29,7 +29,7 @@ ion-card-content {
 		justify-content: space-between;
 		margin-bottom: 4rem;
 		color: black;
-		background-color: #f1b634;
+		// background-color: #dfa425;
 		padding: 2px;
 		ion-item {
 			margin: 0.1rem 0rem;
@@ -62,5 +62,4 @@ ion-button {
 	height: 3rem;
 	font-weight: bold;
 	border-radius: 15px;
-	--background: #132caa;
 }

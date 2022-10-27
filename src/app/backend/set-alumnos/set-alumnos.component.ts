@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core'
+import { FirestorageService } from 'src/app/services/firestorage.service'
 import { FirestoreService } from 'src/app/services/firestore.service'
 
 @Component({
@@ -7,7 +8,11 @@ import { FirestoreService } from 'src/app/services/firestore.service'
 	styleUrls: ['./set-alumnos.component.scss'],
 })
 export class SetAlumnosComponent implements OnInit {
-	constructor(public database: FirestoreService) {}
+	newImage = ''
+	constructor(
+		public database: FirestoreService,
+		public fireStorage: FirestorageService
+	) {}
 
 	ngOnInit() {}
 }

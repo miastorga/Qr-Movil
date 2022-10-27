@@ -1,11 +1,16 @@
 import { NgModule } from '@angular/core'
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router'
+import { PerfilComponent } from './components/perfil/perfil.component'
 
 const routes: Routes = [
 	{
 		path: '',
 		redirectTo: 'login',
 		pathMatch: 'full',
+	},
+	{
+		path: 'perfil',
+		component: PerfilComponent,
 	},
 
 	{

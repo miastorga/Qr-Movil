@@ -13,6 +13,8 @@ import { BackendModule } from './backend/backend.module'
 import { AngularFireModule } from '@angular/fire/compat'
 import { environment } from 'src/environments/environment'
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore'
+import { AngularFireStorageModule } from '@angular/fire/compat/storage'
+import { AngularFireAuthModule } from '@angular/fire/compat/auth'
 
 @NgModule({
 	declarations: [AppComponent],
@@ -24,6 +26,8 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore'
 		BackendModule,
 		AngularFireModule.initializeApp(environment.firebaseConfig),
 		AngularFirestoreModule,
+		AngularFireStorageModule,
+		AngularFireAuthModule,
 	],
 	providers: [
 		{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
