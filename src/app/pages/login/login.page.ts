@@ -69,12 +69,11 @@ export class LoginPage implements OnInit {
 				console.log('error')
 				this.interactions.closeLoading()
 				this.interactions.presentToast('Usuario o contraseña invalida')
-				return
 			})
 		if (res) {
 			console.log('Login respuesta: ', res)
 			this.interactions.closeLoading()
-			this.router.navigate(['/home'])
+			// this.router.navigate(['/home'])
 		}
 
 		// this.historial = {

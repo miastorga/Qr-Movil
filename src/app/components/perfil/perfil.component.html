@@ -1,10 +1,29 @@
 <ion-content>
-  <ion-list *ngIf="alumno">
-    <ion-item>
-      <ion-label>
-        {{alumno.nombre}}
-      </ion-label>
+  <div class="user-profile">
+    <img src='https://avatars.dicebear.com/api/initials/{{alumno.username}}.svg' alt="">
+  </div>
 
-    </ion-item>
-  </ion-list>
+  <p id="nombre">
+    {{alumno.nombre}}
+  </p>
+
+  <form class="datosUsuario">
+
+    <p>
+      <ion-icon name="person-circle-outline"></ion-icon>
+      {{alumno.username}}
+    </p>
+
+    <p>
+      <ion-icon name="mail-outline"></ion-icon>
+      {{alumno.correo}}
+    </p>
+
+    <p>
+      <ion-icon name="book-outline"></ion-icon>
+      Analista Programador Computacional
+    </p>
+
+  </form>
+
 </ion-content>

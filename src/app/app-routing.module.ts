@@ -1,22 +1,31 @@
 import { NgModule } from '@angular/core'
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router'
 import { PerfilComponent } from './components/perfil/perfil.component'
-
+import {
+	AngularFireAuthGuard,
+	redirectUnauthorizedTo,
+	redirectLoggedInTo,
+	canActivate,
+} from '@angular/fire/compat/auth-guard'
+const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo([''])
+const redirectLoggedInToHome = () => redirectLoggedInTo(['home'])
 const routes: Routes = [
+	// {
+	// 	path: '',
+	// 	redirectTo: 'login',
+	// 	pathMatch: 'full',
+	// },
 	{
 		path: '',
-		redirectTo: 'login',
-		pathMatch: 'full',
+		loadChildren: () =>
+			import('./pages/login/login.module').then((m) => m.LoginPageModule),
+		...canActivate(redirectLoggedInToHome),
 	},
 	{
 		path: 'perfil',
 		component: PerfilComponent,
-	},
-
-	{
-		path: 'login',
-		loadChildren: () =>
-			import('./pages/login/login.module').then((m) => m.LoginPageModule),
+		canActivate: [AngularFireAuthGuard],
+		data: { authGuardPipe: redirectUnauthorizedToLogin },
 	},
 	{
 		path: 'recuperar-contrasegna',
@@ -24,16 +33,22 @@ const routes: Routes = [
 			import('./pages/recuperar-contrasegna/recuperar-contrasegna.module').then(
 				(m) => m.RecuperarContrasegnaPageModule
 			),
+		canActivate: [AngularFireAuthGuard],
+		data: { authGuardPipe: redirectUnauthorizedToLogin },
 	},
 	{
 		path: 'escaner',
 		loadChildren: () =>
 			import('./pages/escaner/escaner.module').then((m) => m.EscanerPageModule),
+		canActivate: [AngularFireAuthGuard],
+		data: { authGuardPipe: redirectUnauthorizedToLogin },
 	},
 	{
 		path: 'home',
 		loadChildren: () =>
 			import('./pages/home/home.module').then((m) => m.HomePageModule),
+		canActivate: [AngularFireAuthGuard],
+		data: { authGuardPipe: redirectUnauthorizedToLogin },
 	},
 	{
 		path: 'compartir-qr',
@@ -41,6 +56,8 @@ const routes: Routes = [
 			import('./pages/compartir-qr/compartir-qr.module').then(
 				(m) => m.CompartirQrPageModule
 			),
+		canActivate: [AngularFireAuthGuard],
+		data: { authGuardPipe: redirectUnauthorizedToLogin },
 	},
 	{
 		path: '**',

@@ -8,12 +8,7 @@ const routes: Routes = [
 	{
 		path: '',
 		component: HomePage,
-		children: [
-			{
-				path: 'sidemenu',
-				component: SidemenuComponent,
-			},
-		],
+		children: [],
 	},
 ]
 
