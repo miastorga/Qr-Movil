@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core'
-import { FirebaseauthService } from 'src/app/services/firebaseauth.service'
+import { FirebaseAuthService } from 'src/app/services/firebase-auth.service'
 import { FirestoreService } from 'src/app/services/firestore.service'
 import { Alumno } from '../../interfaces'
 
@@ -19,12 +19,40 @@ export class PerfilComponent implements OnInit {
 	}
 	uid = ''
 	newFile: any
+	login: boolean = false
 	constructor(
-		public firebaseAuthService: FirebaseauthService,
+		public firebaseAuthService: FirebaseAuthService,
 		public firestoreService: FirestoreService
-	) {}
+	) {
+		this.firebaseAuthService.stateAuth().subscribe((res) => {
+			if (res) {
+				console.log('esta logeado')
+				this.login = true
+				this.getDatosAlumno(res.uid)
+			} else {
+				console.log('no esta logeado')
+				this.login = false
+			}
+		})
+	}
 
-	async ngOnInit() {}
+	async ngOnInit() {
+		this.firebaseAuthService.stateAuth().subscribe((res) => {
+			console.log('perfil res', res)
+			this.getUid()
+		})
+		// this.getUid()
+	}
+	async getUid() {
+		const uid = await this.firebaseAuthService.getUID()
+		if (uid) {
+			this.uid = uid
+			console.log('uid', this.uid)
+			this.getDatosAlumno(this.uid)
+		} else {
+			console.log('no existe uid')
+		}
+	}
 	async newImageUpload(event: any) {
 		if (event.target.files && event.target.files[0]) {
 			this.newFile = event.target.files[0]
@@ -34,5 +62,15 @@ export class PerfilComponent implements OnInit {
 			}
 			reader.readAsDataURL(event.target.files[0])
 		}
+	}
+	getDatosAlumno(uid: string) {
+		const path = 'Alumnos'
+		const id = uid
+		this.firestoreService.getDocument<Alumno>(path, id).subscribe((res) => {
+			if (res) {
+				this.alumno = res
+			}
+			console.log('datos alumno: ', res.nombre)
+		})
 	}
 }

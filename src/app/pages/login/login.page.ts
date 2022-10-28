@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core'
-import { Router, NavigationExtras } from '@angular/router'
+import { Router } from '@angular/router'
 import { ToastController } from '@ionic/angular'
 import { Alumno } from 'src/app/interfaces'
-import { FirebaseauthService } from 'src/app/services/firebaseauth.service'
-import { AlumnosDataService } from '../../services/alumnos-data.service'
+import { FirebaseAuthService } from 'src/app/services/firebase-auth.service'
 import { FirestoreService } from '../../services/firestore.service'
-
+import { Subscription } from 'rxjs'
+import { InteractionsService } from 'src/app/services/interactions.service'
 @Component({
 	selector: 'app-login',
 	templateUrl: './login.page.html',
@@ -28,36 +28,27 @@ export class LoginPage implements OnInit {
 		username: '',
 	}
 	uid = ''
+	suscriberUserInfo: Subscription
 	constructor(
 		private router: Router,
 		public toastController: ToastController,
-		private alumnosService: AlumnosDataService,
 		public database: FirestoreService,
-		public firebaseAuthService: FirebaseauthService,
-		public firestoreService: FirestoreService
+		public firebaseAuthService: FirebaseAuthService,
+		public firestoreService: FirestoreService,
+		public interactions: InteractionsService
 	) {
-		this.firebaseAuthService.stateAuth().subscribe((res) => {
-			console.log(res)
-			if (res != null) {
-				this.uid = res.uid
-				this.getUserInfo(this.uid)
-			} else {
-				this.initAlumno()
-			}
-		})
+		// this.firebaseAuthService.stateAuth().subscribe((res) => {
+		// 	console.log(res)
+		// 	if (res != null) {
+		// 		this.uid = res.uid
+		// 		this.getUserInfo(this.uid)
+		// 	} else {
+		// 		this.initAlumno()
+		// 	}
+		// })
 	}
 
-	ngOnInit() {
-		// Cuando este componente carge por primera vez se ejecutara esto ⇊⇊⇊⇊⇊⇊⇊⇊⇊⇊
-		// Tomos los datos de la API, los recorro y los guardo en la varible alumnos
-		// donde alumnos es una lista que almacena muchos objetos (alumnos)
-		this.alumnosService.getAlumnos().subscribe((resp) => {
-			Object.values(resp).forEach((alumno) => {
-				this.alumnos.push(...alumno)
-				console.log(this.alumnos)
-			})
-		})
-	}
+	ngOnInit() {}
 	initAlumno() {
 		this.uid = ''
 		this.alumno = {
@@ -68,23 +59,24 @@ export class LoginPage implements OnInit {
 			nombre: '',
 			username: '',
 		}
+		console.log(this.alumno)
 	}
-	ingresar() {
-		// if (this.validarAlumno(this.usuario, this.password)) {
-		this.presentToast('Bienvenido ' + this.usuario)
-		let navigationExtras: NavigationExtras = {
-			state: {
-				user: { user: this.buscarAlumno }, // Al estado se asignamos un objeto con clave y valor
-			},
-		}
-		this.firebaseAuthService
+	async ingresar() {
+		await this.interactions.presentLoading('Ingresando...')
+		const res = this.firebaseAuthService
 			.logIn(this.usuario, this.password)
-			.then((res) => {
-				console.log('Ingreso usuario', res)
+			.catch((error) => {
+				console.log('error')
+				this.interactions.closeLoading()
+				this.interactions.presentToast('Usuario o contraseña invalida')
+				return
 			})
-			.catch((err) => {
-				console.log('error', err)
-			})
+		if (res) {
+			console.log('Login respuesta: ', res)
+			this.interactions.closeLoading()
+			this.router.navigate(['/home'])
+		}
+
 		// this.historial = {
 		// 	detalles: 'detalles',
 		// 	hora: new Date(),
@@ -95,39 +87,17 @@ export class LoginPage implements OnInit {
 		// const path = 'Alumnos'
 		// const id = this.database.getId()
 		// this.database.createDocument(this.historial, path, id)
-		this.router.navigate(['/home'], navigationExtras)
+		// this.router.navigate(['/home'], navigationExtras)
 		// }
 	}
 
-	// validarAlumno(user: string, pass: string) {
-	// this.buscarAlumno = this.alumnos.find((alumno) => alumno.username === user)
-	// const buscarPassword = this.alumnos.find(
-	// 	(alumno) => alumno.password === pass
-	// )
-	// if (typeof this.buscarAlumno === 'undefined') {
-	// 	this.presentToast('Usuario invalido', 900)
-	// 	return false
+	// getUserInfo(uid: string) {
+	// 	console.log('getuserinfo')
+	// 	const path = 'Alumno'
+	// 	this.suscriberUserInfo = this.firestoreService
+	// 		.getDocument<Alumno>(path, uid)
+	// 		.subscribe((res) => {
+	// 			this.alumno = res
+	// 		})
 	// }
-	// if (typeof buscarPassword === 'undefined') {
-	// 	this.presentToast('Contraseña invalida', 900)
-	// 	return false
-	// }
-	// 	return true
-	// }
-
-	async presentToast(msg: string, duracion?: number) {
-		const toast = await this.toastController.create({
-			message: msg,
-			duration: duracion ? duracion : 3000,
-		})
-		toast.present()
-	}
-	getUserInfo(uid: string) {
-		const path = 'Cliente'
-		this.firestoreService.getDocument<Alumno>(path, uid).subscribe((res) => {
-			this.alumno = res
-		})
-	}
 }
-
-// FIN EVENTO INGRESAR

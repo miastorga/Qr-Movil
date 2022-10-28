@@ -14,7 +14,7 @@ export class FirestoreService {
 
 	getDocument<T>(path: string, id: string) {
 		const collection = this.database.collection<T>(path)
-		return collection.doc(id).valueChanges()
+		return collection.doc<T>(id).valueChanges()
 	}
 
 	// Agregar datos del qr al historial del qr firebase

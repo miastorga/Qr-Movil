@@ -10,6 +10,6 @@ export interface Alumno {
 	username: string
 	foto: string
 	correo: string
-	historial_qrs: Array<DetalleQr>
+	historial_qrs?: Array<DetalleQr>
 	password?: string
 }

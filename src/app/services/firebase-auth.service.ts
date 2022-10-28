@@ -4,7 +4,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth'
 @Injectable({
 	providedIn: 'root',
 })
-export class FirebaseauthService {
+export class FirebaseAuthService {
 	constructor(public auth: AngularFireAuth) {
 		this.getUID()
 	}

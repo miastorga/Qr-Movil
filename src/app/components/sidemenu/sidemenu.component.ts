@@ -1,8 +1,7 @@
-import { Component, Input } from '@angular/core'
+import { Component, Input, OnInit } from '@angular/core'
 import { AlertController } from '@ionic/angular'
 import { Router } from '@angular/router'
-import { SafeUrl } from '@angular/platform-browser'
-import { FirebaseauthService } from 'src/app/services/firebaseauth.service'
+import { FirebaseAuthService } from 'src/app/services/firebase-auth.service'
 import { Alumno } from 'src/app/interfaces'
 import { FirestoreService } from 'src/app/services/firestore.service'
 import { Subscription } from 'rxjs'
@@ -11,7 +10,7 @@ import { Subscription } from 'rxjs'
 	templateUrl: './sidemenu.component.html',
 	styleUrls: ['./sidemenu.component.scss'],
 })
-export class SidemenuComponent {
+export class SidemenuComponent implements OnInit {
 	@Input() userName: string
 	@Input() nombre: string
 
@@ -27,12 +26,12 @@ export class SidemenuComponent {
 	constructor(
 		public alertController: AlertController,
 		private router: Router,
-		public firebaseAuthService: FirebaseauthService,
+		public firebaseAuthService: FirebaseAuthService,
 		public firestoreService: FirestoreService
 	) {}
-	// Inicio evento cerrar sesión
-	// Si en la el alertController apretas click fuera del cuadro
-	// El programa entenderá que quieres seguir en el menú
+
+	async ngOnInit() {}
+
 	async cerrarSesion() {
 		const alert = await this.alertController.create({
 			cssClass: 'my-custom-class',
@@ -49,8 +48,6 @@ export class SidemenuComponent {
 					text: 'Si',
 					handler: async () => {
 						this.firebaseAuthService.logOut()
-						//TODO unsubcribe no funciona ARREGLAR
-						this.suscriberUserInfo.unsubscribe()
 						this.router.navigate(['/login'])
 					},
 				},
@@ -58,19 +55,5 @@ export class SidemenuComponent {
 		})
 
 		await alert.present()
-	}
-
-	url: SafeUrl = ''
-	onCodeChange(url: SafeUrl) {
-		this.url = url
-	}
-
-	getUserInfo(uid: string) {
-		const path = 'Cliente'
-		this.suscriberUserInfo = this.firestoreService
-			.getDocument<Alumno>(path, uid)
-			.subscribe((res) => {
-				this.alumno = res
-			})
 	}
 }
