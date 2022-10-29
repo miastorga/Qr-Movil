@@ -36,17 +36,7 @@ export class LoginPage implements OnInit {
 		public firebaseAuthService: FirebaseAuthService,
 		public firestoreService: FirestoreService,
 		public interactions: InteractionsService
-	) {
-		// this.firebaseAuthService.stateAuth().subscribe((res) => {
-		// 	console.log(res)
-		// 	if (res != null) {
-		// 		this.uid = res.uid
-		// 		this.getUserInfo(this.uid)
-		// 	} else {
-		// 		this.initAlumno()
-		// 	}
-		// })
-	}
+	) {}
 
 	ngOnInit() {}
 	initAlumno() {
@@ -62,41 +52,19 @@ export class LoginPage implements OnInit {
 		console.log(this.alumno)
 	}
 	async ingresar() {
-		await this.interactions.presentLoading('Ingresando...')
-		const res = this.firebaseAuthService
+		await this.interactions.presentLoading('Ingresando')
+		const res = await this.firebaseAuthService
 			.logIn(this.usuario, this.password)
 			.catch((error) => {
-				console.log('error')
+				console.log('error login')
 				this.interactions.closeLoading()
-				this.interactions.presentToast('Usuario o contraseña invalida')
+				this.interactions.presentToast('Usuario o Contraseña incorrecta')
 			})
 		if (res) {
-			console.log('Login respuesta: ', res)
+			console.log('res ->', res)
 			this.interactions.closeLoading()
-			// this.router.navigate(['/home'])
+			this.interactions.presentToast('Ingresado con exito')
+			this.router.navigate(['/home'])
 		}
-
-		// this.historial = {
-		// 	detalles: 'detalles',
-		// 	hora: new Date(),
-		// 	profesor: 'jesus jesus jesus',
-		// 	siglas: '55555',
-		// 	id: this.database.getId(),
-		// }
-		// const path = 'Alumnos'
-		// const id = this.database.getId()
-		// this.database.createDocument(this.historial, path, id)
-		// this.router.navigate(['/home'], navigationExtras)
-		// }
 	}
-
-	// getUserInfo(uid: string) {
-	// 	console.log('getuserinfo')
-	// 	const path = 'Alumno'
-	// 	this.suscriberUserInfo = this.firestoreService
-	// 		.getDocument<Alumno>(path, uid)
-	// 		.subscribe((res) => {
-	// 			this.alumno = res
-	// 		})
-	// }
 }

@@ -16,10 +16,10 @@ ion-content {
 ion-card-content {
 	display: flex;
 	flex-direction: column;
-	// background-color: #f1b634;
+	background-color: #f1b634;
 	margin-top: 2rem;
 	padding: 10px;
-	border-radius: 20px 0px;
+	border-radius: 20px 20px 0px 0px;
 	padding-top: 1rem;
 	height: 100%;
 	.form {
@@ -33,7 +33,7 @@ ion-card-content {
 		padding: 2px;
 		ion-item {
 			margin: 0.1rem 0rem;
-			--background: #f4f5f8;
+			--background: #ffffff;
 			border-radius: 10px;
 			color: black;
 			ion-input {
@@ -51,7 +51,7 @@ ion-card-header {
 	display: flex;
 	justify-content: center;
 	align-content: center;
-	margin-top: 4rem;
+	margin-top: 6rem;
 	height: 8rem;
 	#logo-duoc {
 		width: 15rem;

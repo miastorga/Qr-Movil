@@ -1,29 +1,43 @@
 <ion-content>
-  <div class="user-profile">
-    <img src='https://avatars.dicebear.com/api/initials/{{alumno.username}}.svg' alt="">
+  <div *ngIf="loaded">
+    <div class="user-profile">
+      <img src='https://avatars.dicebear.com/api/initials/{{alumno.username}}.svg' alt="">
+    </div>
+
+    <p id="nombre">
+      {{alumno.nombre}}
+    </p>
+
+    <form class="datosUsuario">
+
+      <p>
+        <ion-icon name="person-circle-outline"></ion-icon>
+        {{alumno.username}}
+      </p>
+
+      <p>
+        <ion-icon name="mail-outline"></ion-icon>
+        {{alumno.correo}}
+      </p>
+    </form>
   </div>
+  <div *ngIf="!loaded">
+    <ion-item>
+      <ion-label>
+        <ion-thumbnail>
+          <ion-skeleton-text [animated]="true"></ion-skeleton-text>
+        </ion-thumbnail>
+        <h3>
+          <ion-skeleton-text [animated]="true" style="margin-bottom: 2rem;"></ion-skeleton-text>
+        </h3>
+        <p>
+          <ion-skeleton-text [animated]="true" style="width: 60%; margin-bottom: 2rem;"></ion-skeleton-text>
+        </p>
+        <p>
+          <ion-skeleton-text [animated]="true" style="width: 30%; margin-bottom: 2rem;"></ion-skeleton-text>
+        </p>
+      </ion-label>
+    </ion-item>
 
-  <p id="nombre">
-    {{alumno.nombre}}
-  </p>
-
-  <form class="datosUsuario">
-
-    <p>
-      <ion-icon name="person-circle-outline"></ion-icon>
-      {{alumno.username}}
-    </p>
-
-    <p>
-      <ion-icon name="mail-outline"></ion-icon>
-      {{alumno.correo}}
-    </p>
-
-    <p>
-      <ion-icon name="book-outline"></ion-icon>
-      Analista Programador Computacional
-    </p>
-
-  </form>
-
+  </div>
 </ion-content>

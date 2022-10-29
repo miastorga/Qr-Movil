@@ -1,25 +1,25 @@
 import { Injectable } from '@angular/core'
 import { AngularFireAuth } from '@angular/fire/compat/auth'
-
 @Injectable({
 	providedIn: 'root',
 })
 export class FirebaseAuthService {
-	constructor(public auth: AngularFireAuth) {
+	constructor(private authFirebase: AngularFireAuth) {
 		this.getUID()
 	}
+	async logIn(email: string, password: string) {
+		return await this.authFirebase.signInWithEmailAndPassword(email, password)
+	}
 
-	logIn(email: string, password: string) {
-		return this.auth.signInWithEmailAndPassword(email, password)
-	}
 	logOut() {
-		this.auth.signOut()
+		return this.authFirebase.signOut()
 	}
+
 	async getUID() {
-		const user = await this.auth.currentUser
+		const user = await this.authFirebase.currentUser
 		return user ? user.uid : null
 	}
-	stateAuth() {
-		return this.auth.authState
+	stateUser() {
+		return this.authFirebase.authState
 	}
 }

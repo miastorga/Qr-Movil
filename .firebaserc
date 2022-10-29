@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "registrapp-a2ce8": {
+      "hosting": {
+        "app": [
+          "registrapp-a2ce8"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "registrapp-a2ce8"
+  }
+}

@@ -34,14 +34,12 @@ export class SidemenuComponent implements OnInit {
 
 	async cerrarSesion() {
 		const alert = await this.alertController.create({
-			cssClass: 'my-custom-class',
 			header: 'Atención',
 			message: '¿Está seguro que desea cerrar sesión?',
 			buttons: [
 				{
 					text: 'No',
 					role: 'cancel',
-					cssClass: 'secondary',
 					handler: (blah) => {},
 				},
 				{

@@ -14,8 +14,19 @@ import { AngularFireModule } from '@angular/fire/compat'
 import { environment } from 'src/environments/environment'
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore'
 import { AngularFireStorageModule } from '@angular/fire/compat/storage'
-import { AngularFireAuthModule } from '@angular/fire/compat/auth'
-import { PERSISTENCE } from '@angular/fire/compat/auth'
+import { AngularFireAuthModule, PERSISTENCE } from '@angular/fire/compat/auth'
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app'
+import {
+	provideAnalytics,
+	getAnalytics,
+	ScreenTrackingService,
+	UserTrackingService,
+} from '@angular/fire/analytics'
+import { provideAuth, getAuth } from '@angular/fire/auth'
+import { provideFirestore, getFirestore } from '@angular/fire/firestore'
+import { provideFunctions, getFunctions } from '@angular/fire/functions'
+import { provideMessaging, getMessaging } from '@angular/fire/messaging'
+import { provideStorage, getStorage } from '@angular/fire/storage'
 @NgModule({
 	declarations: [AppComponent],
 	imports: [
@@ -24,15 +35,24 @@ import { PERSISTENCE } from '@angular/fire/compat/auth'
 		AppRoutingModule,
 		HttpClientModule,
 		BackendModule,
-		AngularFireModule.initializeApp(environment.firebaseConfig),
+		AngularFireModule.initializeApp(environment.firebase),
 		AngularFirestoreModule,
 		AngularFireStorageModule,
 		AngularFireAuthModule,
+		provideFirebaseApp(() => initializeApp(environment.firebase)),
+		provideAnalytics(() => getAnalytics()),
+		provideAuth(() => getAuth()),
+		provideFirestore(() => getFirestore()),
+		provideFunctions(() => getFunctions()),
+		provideMessaging(() => getMessaging()),
+		provideStorage(() => getStorage()),
 	],
 	providers: [
 		{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
 		BarcodeScanner,
-		// { provide: PERSISTENCE, useValue: 'session' },
+		ScreenTrackingService,
+		UserTrackingService,
+		{ provide: PERSISTENCE, useValue: 'local' },
 	],
 	bootstrap: [AppComponent],
 })

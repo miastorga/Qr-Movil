@@ -22,6 +22,7 @@ export class InteractionsService {
 		this.loading = await this.loadingController.create({
 			message: mensaje,
 			duration: 2000,
+			cssClass: '.alert-button-confirm',
 		})
 		await this.loading.present()
 	}

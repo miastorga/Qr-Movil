@@ -7,23 +7,28 @@ import {
 	redirectLoggedInTo,
 	canActivate,
 } from '@angular/fire/compat/auth-guard'
+import { HistorialComponent } from './components/historial/historial.component'
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo([''])
-const redirectLoggedInToHome = () => redirectLoggedInTo(['home'])
 const routes: Routes = [
-	// {
-	// 	path: '',
-	// 	redirectTo: 'login',
-	// 	pathMatch: 'full',
-	// },
 	{
 		path: '',
+		redirectTo: 'login',
+		pathMatch: 'full',
+	},
+	{
+		path: 'login',
 		loadChildren: () =>
 			import('./pages/login/login.module').then((m) => m.LoginPageModule),
-		...canActivate(redirectLoggedInToHome),
 	},
 	{
 		path: 'perfil',
 		component: PerfilComponent,
+		canActivate: [AngularFireAuthGuard],
+		data: { authGuardPipe: redirectUnauthorizedToLogin },
+	},
+	{
+		path: 'historial',
+		component: HistorialComponent,
 		canActivate: [AngularFireAuthGuard],
 		data: { authGuardPipe: redirectUnauthorizedToLogin },
 	},

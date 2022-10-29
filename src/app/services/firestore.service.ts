@@ -18,11 +18,11 @@ export class FirestoreService {
 	}
 
 	// Agregar datos del qr al historial del qr firebase
-	updateHistorial(historial: any, path: string, id: string) {
-		const { detalles, hora, profesor, siglas } = historial
+	updateHistorial(detallesQr: any, path: string, id: string) {
+		const { detalles, hora, profesor, siglas } = detallesQr
 		const collection = this.database.collection(path)
 		return collection.doc(id).update({
-			historial,
+			detallesQr,
 		})
 	}
 	getId() {

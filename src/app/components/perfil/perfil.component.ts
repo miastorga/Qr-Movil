@@ -9,6 +9,7 @@ import { Alumno } from '../../interfaces'
 	styleUrls: ['./perfil.component.scss'],
 })
 export class PerfilComponent implements OnInit {
+	loaded = false
 	alumno: Alumno = {
 		correo: '',
 		foto: '',
@@ -24,7 +25,7 @@ export class PerfilComponent implements OnInit {
 		public firebaseAuthService: FirebaseAuthService,
 		public firestoreService: FirestoreService
 	) {
-		this.firebaseAuthService.stateAuth().subscribe((res) => {
+		this.firebaseAuthService.stateUser().subscribe((res) => {
 			if (res) {
 				console.log('esta logeado')
 				this.login = true
@@ -37,22 +38,29 @@ export class PerfilComponent implements OnInit {
 	}
 
 	async ngOnInit() {
-		this.firebaseAuthService.stateAuth().subscribe((res) => {
-			console.log('perfil res', res)
-			this.getUid()
-		})
+		// const alumnos = this.firestoreService
+		// 	.getCollection<Alumno>('Alumnos')
+		// 	.subscribe((res) => {
+		// 		console.log(res)
+		// 	})
+		// this.firebaseAuthService.stateUser().subscribe((res) => {
+		// 	console.log('perfil res', res)
+		// 	this.getUid()
+		// })
 		// this.getUid()
 	}
-	async getUid() {
-		const uid = await this.firebaseAuthService.getUID()
-		if (uid) {
-			this.uid = uid
-			console.log('uid', this.uid)
-			this.getDatosAlumno(this.uid)
-		} else {
-			console.log('no existe uid')
-		}
-	}
+
+	// async getUid() {
+	// 	const uid = await this.firebaseAuthService.getUID()
+	// 	if (uid) {
+	// 		this.uid = uid
+	// 		console.log('uid', this.uid)
+	// 		// this.getDatosAlumno(this.uid)
+	// 	} else {
+	// 		console.log('no existe uid')
+	// 	}
+	// }
+
 	async newImageUpload(event: any) {
 		if (event.target.files && event.target.files[0]) {
 			this.newFile = event.target.files[0]
@@ -63,6 +71,7 @@ export class PerfilComponent implements OnInit {
 			reader.readAsDataURL(event.target.files[0])
 		}
 	}
+
 	getDatosAlumno(uid: string) {
 		const path = 'Alumnos'
 		const id = uid
@@ -70,7 +79,8 @@ export class PerfilComponent implements OnInit {
 			if (res) {
 				this.alumno = res
 			}
-			console.log('datos alumno: ', res.nombre)
+			this.loaded = true
+			console.log('datos alumno -> ', res)
 		})
 	}
 }
