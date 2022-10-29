@@ -18,18 +18,6 @@ export class EscanerPage implements OnInit {
 			.scan()
 			.then((barcodeData) => {
 				this.scannedResult = barcodeData.text
-				//**FUNCIONA */
-				const data = {
-					historial: {
-						detalles: this.scannedResult,
-						hora: new Date(),
-						profesor: 'yaravi',
-						siglas: 'asd-987',
-					},
-				}
-				const path = 'Alumnos/'
-				const id = '3'
-				this.database.createDocument(data, path, id)
 				console.log(barcodeData.text)
 			})
 			.catch((err) => {

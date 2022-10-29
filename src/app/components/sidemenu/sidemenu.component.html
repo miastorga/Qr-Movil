@@ -11,35 +11,35 @@
     <ion-content class="ion-padding">
 
       <ion-list>
-        <ion-button routerLink="/escaner" color="light" expand="full" size="default">
+        <ion-button routerLink="/escaner" expand="full" size="default" fill="clear">
           <ion-icon name="qr-code-outline" set></ion-icon>
           <p>
             Escanear
           </p>
         </ion-button>
 
-        <!-- <ion-item>
-          <ion-button routerLink="/historial" color="warning">
+        <ion-button routerLink="/historial-qrs" fill="clear" expand="full" size="default" [state]="{alumno}">
+          <ion-icon name="copy-outline"></ion-icon>
+          <p>
             Historial
-            <ion-icon name="copy-outline"></ion-icon>
-          </ion-button>
-        </ion-item> -->
+          </p>
+        </ion-button>
 
-        <ion-button routerLink="/compartir-qr" color="light" size="default">
+        <ion-button routerLink="/compartir-qr" fill="clear" size="default">
           <ion-icon name="share-social-outline"></ion-icon>
           <p>
             Compatir QR
           </p>
         </ion-button>
 
-        <ion-button routerLink="/error404" color="light" size="default">
+        <ion-button routerLink="/error404" fill="clear" size="default">
           <ion-icon name="bug-outline"></ion-icon>
           <p>
             Error 404
           </p>
         </ion-button>
 
-        <ion-button (click)=cerrarSesion() color="light" size="default" id="cerrar-sesion">
+        <ion-button (click)=cerrarSesion() fill="clear" size="default" id="cerrar-sesion">
           <ion-icon name="log-out-outline"></ion-icon>
           <p>
             Cerrar sesión
@@ -64,7 +64,7 @@
     </ion-header>
     <ion-content class="ion-padding">
 
-      <app-perfil></app-perfil>
+      <app-perfil [alumno]="alumno" [loaded]="loaded"></app-perfil>
 
     </ion-content>
   </div>

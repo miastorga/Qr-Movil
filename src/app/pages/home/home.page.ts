@@ -6,7 +6,5 @@ import { Component, OnInit } from '@angular/core'
 })
 export class HomePage implements OnInit {
 	constructor() {}
-	ngOnInit(): void {
-		console.log('home')
-	}
+	ngOnInit(): void {}
 }

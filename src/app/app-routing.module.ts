@@ -7,7 +7,6 @@ import {
 	redirectLoggedInTo,
 	canActivate,
 } from '@angular/fire/compat/auth-guard'
-import { HistorialComponent } from './components/historial/historial.component'
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo([''])
 const routes: Routes = [
 	{
@@ -23,12 +22,6 @@ const routes: Routes = [
 	{
 		path: 'perfil',
 		component: PerfilComponent,
-		canActivate: [AngularFireAuthGuard],
-		data: { authGuardPipe: redirectUnauthorizedToLogin },
-	},
-	{
-		path: 'historial',
-		component: HistorialComponent,
 		canActivate: [AngularFireAuthGuard],
 		data: { authGuardPipe: redirectUnauthorizedToLogin },
 	},
@@ -63,6 +56,13 @@ const routes: Routes = [
 			),
 		canActivate: [AngularFireAuthGuard],
 		data: { authGuardPipe: redirectUnauthorizedToLogin },
+	},
+	{
+		path: 'historial-qrs',
+		loadChildren: () =>
+			import('./pages/historial-qrs/historial-qrs.module').then(
+				(m) => m.HistorialQrsPageModule
+			),
 	},
 	{
 		path: '**',

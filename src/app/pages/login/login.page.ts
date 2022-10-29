@@ -22,7 +22,7 @@ export class LoginPage implements OnInit {
 	alumno: Alumno = {
 		correo: '',
 		foto: '',
-		historial_qrs: [],
+		historial: [],
 		id: '',
 		nombre: '',
 		username: '',
@@ -44,7 +44,7 @@ export class LoginPage implements OnInit {
 		this.alumno = {
 			correo: '',
 			foto: '',
-			historial_qrs: [],
+			historial: [],
 			id: '',
 			nombre: '',
 			username: '',

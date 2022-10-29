@@ -9,15 +9,9 @@ import { HomePageRoutingModule } from './home-routing.module'
 import { HomePage } from './home.page'
 import { SidemenuComponent } from '../../components/sidemenu/sidemenu.component'
 import { PerfilComponent } from 'src/app/components/perfil/perfil.component'
-import { HistorialComponent } from 'src/app/components/historial/historial.component'
 
 @NgModule({
 	imports: [CommonModule, FormsModule, IonicModule, HomePageRoutingModule],
-	declarations: [
-		HomePage,
-		SidemenuComponent,
-		PerfilComponent,
-		HistorialComponent,
-	],
+	declarations: [HomePage, SidemenuComponent, PerfilComponent],
 })
 export class HomePageModule {}

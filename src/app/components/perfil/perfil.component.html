@@ -19,6 +19,14 @@
         <ion-icon name="mail-outline"></ion-icon>
         {{alumno.correo}}
       </p>
+      <p *ngIf="alumno.carrera">
+        <ion-icon name="book-outline"></ion-icon>
+        {{alumno.carrera}}
+      </p>
+      <p *ngIf="alumno.sede">
+        <ion-icon name="school-outline"></ion-icon>
+        {{alumno.sede}}
+      </p>
     </form>
   </div>
   <div *ngIf="!loaded">
@@ -31,10 +39,16 @@
           <ion-skeleton-text [animated]="true" style="margin-bottom: 2rem;"></ion-skeleton-text>
         </h3>
         <p>
+          <ion-skeleton-text [animated]="true" style="width: 80%; margin-bottom: 2rem;"></ion-skeleton-text>
+        </p>
+        <p>
+          <ion-skeleton-text [animated]="true" style="width: 45%; margin-bottom: 2rem;"></ion-skeleton-text>
+        </p>
+        <p>
           <ion-skeleton-text [animated]="true" style="width: 60%; margin-bottom: 2rem;"></ion-skeleton-text>
         </p>
         <p>
-          <ion-skeleton-text [animated]="true" style="width: 30%; margin-bottom: 2rem;"></ion-skeleton-text>
+          <ion-skeleton-text [animated]="true" style="width: 80%; margin-bottom: 2rem;"></ion-skeleton-text>
         </p>
       </ion-label>
     </ion-item>

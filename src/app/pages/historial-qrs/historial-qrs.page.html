@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Historial Qrs</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngIf="alumno.historial">
+    <ion-item *ngFor=" let histo of alumno.historial">
+      <ion-label>
+        {{histo.profesor}}
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-item *ngIf="!alumno.historial">
+    <ion-label>
+      no hay historial
+    </ion-label>
+  </ion-item>
+  <ion-item *ngIf="!loaded">
+    <ion-label>
+      <ion-thumbnail>
+        <ion-skeleton-text [animated]="true"></ion-skeleton-text>
+      </ion-thumbnail>
+      <h3>
+        <ion-skeleton-text [animated]="true" style="margin-bottom: 2rem;"></ion-skeleton-text>
+      </h3>
+      <p>
+        <ion-skeleton-text [animated]="true" style="width: 80%; margin-bottom: 2rem;"></ion-skeleton-text>
+      </p>
+      <p>
+        <ion-skeleton-text [animated]="true" style="width: 45%; margin-bottom: 2rem;"></ion-skeleton-text>
+      </p>
+      <p>
+        <ion-skeleton-text [animated]="true" style="width: 60%; margin-bottom: 2rem;"></ion-skeleton-text>
+      </p>
+      <p>
+        <ion-skeleton-text [animated]="true" style="width: 80%; margin-bottom: 2rem;"></ion-skeleton-text>
+      </p>
+    </ion-label>
+  </ion-item>
+</ion-content>

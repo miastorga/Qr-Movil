@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, Input, OnInit } from '@angular/core'
 import { FirebaseAuthService } from 'src/app/services/firebase-auth.service'
 import { FirestoreService } from 'src/app/services/firestore.service'
-import { Alumno } from '../../interfaces'
+import { Alumno, DetalleQr } from '../../interfaces'
 
 @Component({
 	selector: 'app-perfil',
@@ -9,15 +9,8 @@ import { Alumno } from '../../interfaces'
 	styleUrls: ['./perfil.component.scss'],
 })
 export class PerfilComponent implements OnInit {
-	loaded = false
-	alumno: Alumno = {
-		correo: '',
-		foto: '',
-		historial_qrs: [],
-		id: '',
-		nombre: '',
-		username: '',
-	}
+	@Input() alumno: Alumno
+	@Input() loaded: boolean
 	uid = ''
 	newFile: any
 	login: boolean = false
@@ -25,30 +18,19 @@ export class PerfilComponent implements OnInit {
 		public firebaseAuthService: FirebaseAuthService,
 		public firestoreService: FirestoreService
 	) {
-		this.firebaseAuthService.stateUser().subscribe((res) => {
-			if (res) {
-				console.log('esta logeado')
-				this.login = true
-				this.getDatosAlumno(res.uid)
-			} else {
-				console.log('no esta logeado')
-				this.login = false
-			}
-		})
+		// this.firebaseAuthService.stateUser().subscribe((res) => {
+		// 	if (res) {
+		// 		console.log('esta logeado')
+		// 		this.login = true
+		// 		this.getDatosAlumno(res.uid)
+		// 	} else {
+		// 		console.log('no esta logeado')
+		// 		this.login = false
+		// 	}
+		// })
 	}
 
-	async ngOnInit() {
-		// const alumnos = this.firestoreService
-		// 	.getCollection<Alumno>('Alumnos')
-		// 	.subscribe((res) => {
-		// 		console.log(res)
-		// 	})
-		// this.firebaseAuthService.stateUser().subscribe((res) => {
-		// 	console.log('perfil res', res)
-		// 	this.getUid()
-		// })
-		// this.getUid()
-	}
+	ngOnInit() {}
 
 	// async getUid() {
 	// 	const uid = await this.firebaseAuthService.getUID()
@@ -72,15 +54,15 @@ export class PerfilComponent implements OnInit {
 		}
 	}
 
-	getDatosAlumno(uid: string) {
-		const path = 'Alumnos'
-		const id = uid
-		this.firestoreService.getDocument<Alumno>(path, id).subscribe((res) => {
-			if (res) {
-				this.alumno = res
-			}
-			this.loaded = true
-			console.log('datos alumno -> ', res)
-		})
-	}
+	// getDatosAlumno(uid: string) {
+	// 	const path = 'Alumnos'
+	// 	const id = uid
+	// 	this.firestoreService.getDocument<Alumno>(path, id).subscribe((res) => {
+	// 		if (res) {
+	// 			this.alumno = res
+	// 		}
+	// 		this.loaded = true
+	// 		console.log('datos alumno -> ', res)
+	// 	})
+	// }
 }
