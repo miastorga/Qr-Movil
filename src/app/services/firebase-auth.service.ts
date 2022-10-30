@@ -10,6 +10,13 @@ export class FirebaseAuthService {
 	async logIn(email: string, password: string) {
 		return await this.authFirebase.signInWithEmailAndPassword(email, password)
 	}
+	async resetPassword(email: string) {
+		try {
+			return this.authFirebase.sendPasswordResetEmail(email)
+		} catch (error) {
+			console.log(error)
+		}
+	}
 
 	logOut() {
 		return this.authFirebase.signOut()

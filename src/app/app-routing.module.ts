@@ -31,8 +31,6 @@ const routes: Routes = [
 			import('./pages/recuperar-contrasegna/recuperar-contrasegna.module').then(
 				(m) => m.RecuperarContrasegnaPageModule
 			),
-		canActivate: [AngularFireAuthGuard],
-		data: { authGuardPipe: redirectUnauthorizedToLogin },
 	},
 	{
 		path: 'escaner',
