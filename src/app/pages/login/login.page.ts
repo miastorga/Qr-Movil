@@ -45,7 +45,7 @@ export class LoginPage implements OnInit {
 		const res = await this.firebaseAuthService
 			.logIn(this.usuario, this.password)
 			.catch((error) => {
-				this.loginErrorsToast(error)
+				this.loginErrorsValidator(error)
 			})
 		if (res) {
 			console.log('res ->', res)
@@ -55,11 +55,20 @@ export class LoginPage implements OnInit {
 		}
 	}
 
-	loginErrorsToast(error: any): Promise<void> {
+	loginErrorsValidator(error: any): Promise<void> {
 		if (error.code === 'auth/invalid-email') {
 			return this.interactions.presentToast('Correo invalido')
 		} else if (error.code === 'auth/user-not-found') {
 			return this.interactions.presentToast('Correo no encontrado')
+		} else if (error.code === 'auth/network-request-failed') {
+			this.interactions.closeLoading()
+			return this.interactions.showAlertSimple({
+				header: 'Problemas de conexión',
+				subHeader:
+					'Tu teléfono ha perdido conexión, contáctese con su proveedor',
+				message: '',
+				buttons: ['Aceptar'],
+			})
 		} else {
 			this.interactions.closeLoading()
 			return this.interactions.presentToast('Usuario o Contraseña incorrecta')

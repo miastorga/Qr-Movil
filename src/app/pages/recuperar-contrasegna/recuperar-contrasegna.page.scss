@@ -1,13 +1,14 @@
 .ion-content {
-	// padding-top: 3rem;
-	background-color: var(--ion-color-fondo);
+	padding-top: 6rem;
+	background: url('../../../assets/img/svg(2).png') no-repeat center;
+	background-size: cover;
 	display: flex;
 	flex-direction: column;
 	height: 100%;
 }
 
 .title {
-	color: white;
+	color: black;
 	text-align: center;
 }
 form {
@@ -16,13 +17,11 @@ form {
 ion-button {
 	margin-top: 1rem;
 	font-weight: bold;
-	letter-spacing: 2px;
+	height: 3rem;
+	border-radius: 15px;
 }
 ion-item {
-	--background: var(--ion-color-fondo);
 	border: 1px solid white;
-	color: white;
-}
-ion-toolbar {
-	--background: var(--ion-color-fondo);
+	border-radius: 10px;
+	color: black;
 }

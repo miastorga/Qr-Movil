@@ -4,6 +4,7 @@ import {
 	LoadingController,
 	ToastController,
 } from '@ionic/angular'
+import { ShowAlertSimple } from '../interfaces'
 @Injectable({
 	providedIn: 'root',
 })
@@ -35,7 +36,12 @@ export class InteractionsService {
 	async closeLoading() {
 		this.loading.dismiss()
 	}
-	async showAlertSimple({ header, subHeader, message, buttons }) {
+	async showAlertSimple({
+		header,
+		subHeader,
+		message,
+		buttons,
+	}: ShowAlertSimple) {
 		const alert = await this.alertController.create({
 			header,
 			subHeader,

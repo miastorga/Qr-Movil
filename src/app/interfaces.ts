@@ -15,3 +15,10 @@ export interface Alumno {
 	carrera?: string
 	sede?: string
 }
+
+export interface ShowAlertSimple {
+	header: string
+	subHeader: string
+	message: string
+	buttons: Array<string>
+}

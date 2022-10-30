@@ -61,6 +61,8 @@ const routes: Routes = [
 			import('./pages/historial-qrs/historial-qrs.module').then(
 				(m) => m.HistorialQrsPageModule
 			),
+		canActivate: [AngularFireAuthGuard],
+		data: { authGuardPipe: redirectUnauthorizedToLogin },
 	},
 	{
 		path: '**',
