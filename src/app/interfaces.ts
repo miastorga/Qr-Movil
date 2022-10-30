@@ -3,13 +3,13 @@ export interface DetalleQr {
 	profesor: string
 	hora: Date
 	siglas: string
-	detalles: string
+	detalles?: string
 }
 export interface Alumno {
 	id: string
 	nombre: string
 	username: string
-	foto?: string
+	foto: string
 	correo: string
 	historial?: Array<DetalleQr>
 	carrera?: string

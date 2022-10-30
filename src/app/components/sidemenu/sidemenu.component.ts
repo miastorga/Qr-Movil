@@ -58,18 +58,17 @@ export class SidemenuComponent implements OnInit {
 		await alert.present()
 	}
 
-	getHistorial() {
-		//**FUNCIONA */
-		const historial: DetalleQr = {
-			detalles: 'prueba1',
+	// funcionando a medias
+	actHistorial() {
+		const detallesQr: DetalleQr = {
 			hora: new Date(),
-			profesor: 'yaravi',
-			siglas: 'asd-987',
-			id: '2',
+			profesor: 'detalle con nuevo id',
+			siglas: 'abc-123',
+			id: this.firestoreService.getId(),
 		}
-		const id = 'hSWGSc3Sr9hY5TkEQUpvdP5Guf72 '
-		const path = 'Alumnos/'
-		this.firestoreService.updateHistorial(historial, path, id)
+		const path = 'Alumnos'
+		const id = this.alumno.id
+		this.firestoreService.updateHistorial(detallesQr, path, id)
 	}
 
 	getDatosAlumno(uid: string) {
@@ -82,10 +81,5 @@ export class SidemenuComponent implements OnInit {
 			this.loaded = true
 			console.log('datos alumno -> ', res)
 		})
-	}
-
-	goToHistorial() {
-		const router = this.router.getCurrentNavigation().extras.state
-		console.log(router)
 	}
 }

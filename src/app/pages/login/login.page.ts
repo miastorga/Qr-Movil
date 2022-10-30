@@ -39,32 +39,30 @@ export class LoginPage implements OnInit {
 	) {}
 
 	ngOnInit() {}
-	initAlumno() {
-		this.uid = ''
-		this.alumno = {
-			correo: '',
-			foto: '',
-			historial: [],
-			id: '',
-			nombre: '',
-			username: '',
-		}
-		console.log(this.alumno)
-	}
+
 	async ingresar() {
 		await this.interactions.presentLoading('Ingresando')
 		const res = await this.firebaseAuthService
 			.logIn(this.usuario, this.password)
 			.catch((error) => {
-				console.log('error login')
-				this.interactions.closeLoading()
-				this.interactions.presentToast('Usuario o Contraseña incorrecta')
+				this.loginErrorsToast(error)
 			})
 		if (res) {
 			console.log('res ->', res)
 			this.interactions.closeLoading()
 			this.interactions.presentToast('Ingresado con exito')
 			this.router.navigate(['/home'])
+		}
+	}
+
+	loginErrorsToast(error: any): Promise<void> {
+		if (error.code === 'auth/invalid-email') {
+			return this.interactions.presentToast('Correo invalido')
+		} else if (error.code === 'auth/user-not-found') {
+			return this.interactions.presentToast('Correo no encontrado')
+		} else {
+			this.interactions.closeLoading()
+			return this.interactions.presentToast('Usuario o Contraseña incorrecta')
 		}
 	}
 }

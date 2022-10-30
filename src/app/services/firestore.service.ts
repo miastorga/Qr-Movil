@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core'
 import { AngularFirestore } from '@angular/fire/compat/firestore'
 import { arrayUnion } from '@angular/fire/firestore'
+import { DetalleQr } from '../interfaces'
 @Injectable({
 	providedIn: 'root',
 })
 export class FirestoreService {
 	constructor(public database: AngularFirestore) {}
 
-	//
 	createDocument(data: any, path: string, id: string) {
 		const collection = this.database.collection(path)
 		return collection.doc(id).set(data)
@@ -23,11 +23,11 @@ export class FirestoreService {
 		return collection.doc(id).delete()
 	}
 
-	// Agregar datos del qr al historial del qr firebase
-	async updateHistorial(detallesQr: any, path: string, id: string) {
-		const collection = this.database.collection(path)
-		return await collection.doc(id).update({
-			historial: arrayUnion(...detallesQr),
+	// Agregar datos del qr al historial de qrs en firebase
+	async updateHistorial(detallesQr: DetalleQr, path: string, id: string) {
+		const updatRef = this.database.collection(path).doc(id)
+		return updatRef.update({
+			historial: arrayUnion(detallesQr),
 		})
 	}
 
