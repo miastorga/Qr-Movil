@@ -13,9 +13,9 @@
 
         <ion-item>
           <ion-label position="floating">
-            Usuario
+            Correo
           </ion-label>
-          <ion-input class="input" [(ngModel)]="usuario" type="text" clearInput="true" value="string">
+          <ion-input class="input" [(ngModel)]="usuario" type="text" value="string" placeholder="Ingrese correo">
           </ion-input>
 
         </ion-item>
@@ -23,7 +23,7 @@
         <div>
           <ion-item>
             <ion-label position="floating">Contraseña </ion-label>
-            <ion-input [(ngModel)]="password" type="password" clearInput="true">
+            <ion-input [(ngModel)]="password" type="password" placeholder="Ingrese contraseña">
             </ion-input>
           </ion-item>
           <a style="float: right; color: black; margin-top: 1rem;" routerLink="/recuperar-contrasegna">

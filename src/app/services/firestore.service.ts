@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core'
 import { AngularFirestore } from '@angular/fire/compat/firestore'
-import { arrayUnion } from '@angular/fire/firestore'
+import { arrayUnion, setDoc } from '@angular/fire/firestore'
 import { DetalleQr } from '../interfaces'
 @Injectable({
 	providedIn: 'root',
@@ -8,9 +8,11 @@ import { DetalleQr } from '../interfaces'
 export class FirestoreService {
 	constructor(public database: AngularFirestore) {}
 
-	createDocument(data: any, path: string, id: string) {
-		const collection = this.database.collection(path)
-		return collection.doc(id).set(data)
+	createImagenPerfil(data: any, path: string, id: string) {
+		const collection = this.database.collection(path) //Alumnos
+		return collection.doc(id).update({
+			foto: data,
+		})
 	}
 
 	getDocument<T>(path: string, id: string) {

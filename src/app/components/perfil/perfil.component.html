@@ -1,15 +1,26 @@
 <ion-content>
   <div *ngIf="loaded">
-    <div class="user-profile">
-      <img src='https://avatars.dicebear.com/api/initials/{{alumno.username}}.svg' alt="">
+    <div style="background-color: #F1B634;" class="user-container">
+      <div class="user-profile" *ngIf="!alumno.foto">
+        <img src='https://avatars.dicebear.com/api/initials/{{alumno.username}}.svg' alt="">
+      </div>
+      <div class="user-profile" *ngIf="alumno.foto">
+        <img [src]='alumno.foto' alt="">
+      </div>
+
+      <ion-buttons slot="end">
+        <ion-button>
+          <label for="subir-img" id="labe-img">
+            <ion-icon slot="icon-only" name="images"></ion-icon>
+          </label>
+          <input (change)="newImageUpload($event)" type="file" accept="image/*" id="subir-img" style="display: none;">
+        </ion-button>
+      </ion-buttons>
+      <p id="nombre">
+        {{alumno.nombre}}
+      </p>
     </div>
-
-    <p id="nombre">
-      {{alumno.nombre}}
-    </p>
-
     <form class="datosUsuario">
-
       <p>
         <ion-icon name="person-circle-outline"></ion-icon>
         {{alumno.username}}
@@ -19,14 +30,17 @@
         <ion-icon name="mail-outline"></ion-icon>
         {{alumno.correo}}
       </p>
+
       <p *ngIf="alumno.carrera">
         <ion-icon name="book-outline"></ion-icon>
         {{alumno.carrera}}
       </p>
+
       <p *ngIf="alumno.sede">
         <ion-icon name="school-outline"></ion-icon>
         {{alumno.sede}}
       </p>
+
     </form>
   </div>
   <div *ngIf="!loaded">

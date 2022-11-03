@@ -1,13 +1,28 @@
+ion-content {
+	// --background: red;
+	// --padding-top: 0px;
+	// --padding-start: 10px;
+	// --padding-end: 10px;
+}
+p {
+	font-size: 17px;
+}
+ion-content {
+	margin: 0px;
+	padding: 0px;
+}
 .datosUsuario {
 	display: flex;
 	justify-content: flex-start;
 	flex-direction: column;
+	margin: 0px 10px 0px 10px;
 	p {
 		display: flex;
 		align-items: center;
-		gap: 8px;
+		gap: 15px;
 		ion-icon {
 			font-size: 20px;
+			margin-left: 10px;
 		}
 	}
 }
@@ -34,4 +49,15 @@ ion-label {
 		width: 8rem;
 		height: 8rem;
 	}
+}
+#nombre {
+	margin: 10px;
+	text-align: center;
+	font-size: 20px;
+}
+.user-container {
+	padding-top: 2rem;
+	padding-bottom: 1rem;
+	// padding: 1rem;
+	border-radius: 0px 0px 25px 25px;
 }

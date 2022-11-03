@@ -18,7 +18,7 @@ export interface Alumno {
 
 export interface ShowAlertSimple {
 	header: string
-	subHeader: string
-	message: string
+	subHeader?: string
+	message?: string
 	buttons: Array<string>
 }

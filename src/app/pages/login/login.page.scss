@@ -40,6 +40,10 @@ ion-card-content {
 				--padding: 1rem;
 			}
 		}
+		ion-item:active {
+			border: 2px solid #f1b634;
+			--background: #fcfcfc;
+		}
 	}
 }
 ion-card-header {
@@ -63,4 +67,8 @@ ion-button {
 	font-weight: bold;
 	border-radius: 15px;
 	margin-bottom: 2rem;
+}
+
+ion-button:active {
+	border: 2px solid #f1b634;
 }

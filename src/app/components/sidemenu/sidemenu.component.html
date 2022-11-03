@@ -11,7 +11,7 @@
     <ion-content class="ion-padding">
 
       <ion-list>
-        <ion-button routerLink="/escaner" expand="full" size="default" fill="clear">
+        <ion-button routerLink="/escaner" expand="full" size="default" fill="clear" [state]="{alumno}">
           <ion-icon name="qr-code-outline" set></ion-icon>
           <p>
             Escanear
@@ -39,15 +39,15 @@
           </p>
         </ion-button>
 
-        <ion-button (click)=cerrarSesion() fill="clear" size="default" id="cerrar-sesion">
+        <ion-button (click)=cerrarSesion() fill="clear" size="default" id="cerrar-sesion" shape="round">
           <ion-icon name="log-out-outline"></ion-icon>
           <p>
             Cerrar sesión
           </p>
         </ion-button>
-        <ion-button (click)=actHistorial()>
+        <!-- <ion-button (click)=actHistorial()>
           actualizar historial
-        </ion-button>
+        </ion-button> -->
       </ion-list>
 
     </ion-content>
@@ -64,7 +64,7 @@
         <ion-title>Inicio</ion-title>
       </ion-toolbar>
     </ion-header>
-    <ion-content class="ion-padding">
+    <ion-content [fullscreen]="true">
 
       <app-perfil [alumno]="alumno" [loaded]="loaded"></app-perfil>
 

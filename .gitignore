@@ -8,4 +8,4 @@ android
 *-debug.log
 .runtimeconfig.json
 .firebaserc
-src/app/envoronments
+src/app/environments

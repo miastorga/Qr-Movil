@@ -58,7 +58,7 @@ export class SidemenuComponent implements OnInit {
 		await alert.present()
 	}
 
-	// funcionando a medias
+	// funcionando
 	actHistorial() {
 		const detallesQr: DetalleQr = {
 			hora: new Date(),
