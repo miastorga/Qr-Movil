@@ -4,9 +4,8 @@ import { PerfilComponent } from './components/perfil/perfil.component'
 import {
 	AngularFireAuthGuard,
 	redirectUnauthorizedTo,
-	redirectLoggedInTo,
-	canActivate,
 } from '@angular/fire/compat/auth-guard'
+import { GenerarQrComponent } from './components/generar-qr/generar-qr.component'
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo([''])
 const routes: Routes = [
 	{
@@ -22,6 +21,12 @@ const routes: Routes = [
 	{
 		path: 'perfil',
 		component: PerfilComponent,
+		canActivate: [AngularFireAuthGuard],
+		data: { authGuardPipe: redirectUnauthorizedToLogin },
+	},
+	{
+		path: 'generar-qr',
+		component: GenerarQrComponent,
 		canActivate: [AngularFireAuthGuard],
 		data: { authGuardPipe: redirectUnauthorizedToLogin },
 	},
@@ -43,15 +48,6 @@ const routes: Routes = [
 		path: 'home',
 		loadChildren: () =>
 			import('./pages/home/home.module').then((m) => m.HomePageModule),
-		canActivate: [AngularFireAuthGuard],
-		data: { authGuardPipe: redirectUnauthorizedToLogin },
-	},
-	{
-		path: 'compartir-qr',
-		loadChildren: () =>
-			import('./pages/compartir-qr/compartir-qr.module').then(
-				(m) => m.CompartirQrPageModule
-			),
 		canActivate: [AngularFireAuthGuard],
 		data: { authGuardPipe: redirectUnauthorizedToLogin },
 	},

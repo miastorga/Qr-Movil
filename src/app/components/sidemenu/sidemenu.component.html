@@ -25,10 +25,10 @@
           </p>
         </ion-button>
 
-        <ion-button routerLink="/compartir-qr" fill="clear" size="default">
+        <ion-button routerLink="/generar-qr" fill="clear" size="default">
           <ion-icon name="share-social-outline"></ion-icon>
           <p>
-            Compatir QR
+            Generar QR
           </p>
         </ion-button>
 
@@ -39,15 +39,15 @@
           </p>
         </ion-button>
 
-        <ion-button (click)=cerrarSesion() fill="clear" size="default" id="cerrar-sesion" shape="round">
+        <ion-button (click)=cerrarSesion() fill="clear" size="large" id="cerrar-sesion" shape="default">
           <ion-icon name="log-out-outline"></ion-icon>
           <p>
             Cerrar sesión
           </p>
         </ion-button>
-        <!-- <ion-button (click)=actHistorial()>
-          actualizar historial
-        </ion-button> -->
+        <ion-button (click)=actHistorial()>
+          agregar qr
+        </ion-button>
       </ion-list>
 
     </ion-content>

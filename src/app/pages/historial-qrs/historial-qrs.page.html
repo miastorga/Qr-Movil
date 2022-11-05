@@ -7,7 +7,7 @@
   </ion-toolbar>
 </ion-header>
 <!-- Idea: filtrar por fecha, profesor, siglas -->
-<app-filtro></app-filtro>
+<!-- <app-filtro></app-filtro> -->
 <ion-content>
   <ion-accordion-group *ngIf="alumno.historial">
     <ion-accordion *ngFor=" let histo of alumno.historial" color="light">
@@ -27,4 +27,7 @@
       no hay historial
     </ion-label>
   </ion-item>
+  <ion-label style="margin-top: auto;">
+    <button (click)=borrarHistorial()>borrar historial</button>
+  </ion-label>
 </ion-content>

@@ -29,8 +29,7 @@ export class EscanerPage implements OnInit {
 			.then((barcodeData) => {
 				this.scannedResult = barcodeData.text
 				//**Funciona si el qr devuelve un JSON */
-				this.actHistorial(this.scannedResult, this.alumno.id)
-				console.log(JSON.parse(barcodeData.text))
+				this.actHistorial(JSON.parse(this.scannedResult), this.alumno.id)
 			})
 			.catch((err) => {
 				this.interactions.showAlertSimple({

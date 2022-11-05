@@ -1,6 +1,13 @@
 import { Injectable } from '@angular/core'
 import { AngularFirestore } from '@angular/fire/compat/firestore'
-import { arrayUnion, setDoc } from '@angular/fire/firestore'
+import {
+	arrayUnion,
+	deleteField,
+	updateDoc,
+	doc,
+} from '@angular/fire/firestore'
+import firebase from 'firebase/compat'
+// import { deleteField, FieldValue } from 'firebase/firestore'
 import { DetalleQr } from '../interfaces'
 @Injectable({
 	providedIn: 'root',
@@ -23,6 +30,14 @@ export class FirestoreService {
 	deleteDocument(path: string, id: string) {
 		const collection = this.database.collection(path)
 		return collection.doc(id).delete()
+	}
+
+	async deleteHistorialQrs(path: string, id: string) {
+		const collection = this.database.collection(path).doc(id)
+		const removeHistorial = collection.update({
+			historial: deleteField(),
+		})
+		console.log(removeHistorial)
 	}
 
 	// Agregar datos del qr al historial de qrs en firebase

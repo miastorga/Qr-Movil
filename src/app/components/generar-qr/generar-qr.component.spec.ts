@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { CompartirQrPage } from './compartir-qr.page';
+import { GenerarQrComponent } from './generar-qr.component';
 
-describe('CompartirQrPage', () => {
-  let component: CompartirQrPage;
-  let fixture: ComponentFixture<CompartirQrPage>;
+describe('GenerarQrComponent', () => {
+  let component: GenerarQrComponent;
+  let fixture: ComponentFixture<GenerarQrComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ CompartirQrPage ],
+      declarations: [ GenerarQrComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(CompartirQrPage);
+    fixture = TestBed.createComponent(GenerarQrComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

@@ -48,7 +48,7 @@ export class PerfilComponent implements OnInit {
 				this.interactions.presentToast('Guardado con exito')
 				this.interactions.closeLoading()
 			})
-			.catch((err) => {
+			.catch(() => {
 				this.interactions.presentToast('No se pudo guardar')
 			})
 		console.log('imagen alumno', this.alumno.foto)
