@@ -10,7 +10,7 @@ import { FirestoreService } from '../../services/firestore.service'
 	styleUrls: ['./escaner.page.scss'],
 })
 export class EscanerPage implements OnInit {
-	scannedResult: any
+	scannedResult: string
 	alumno: Alumno
 
 	constructor(
@@ -28,7 +28,7 @@ export class EscanerPage implements OnInit {
 			.scan()
 			.then((barcodeData) => {
 				this.scannedResult = barcodeData.text
-				//**Funciona si el qr devuelve un JSON */
+				//**Funciona si el qr devuelve un JSON y el Qr es un texto*/
 				this.actHistorial(JSON.parse(this.scannedResult), this.alumno.id)
 			})
 			.catch((err) => {
@@ -36,7 +36,7 @@ export class EscanerPage implements OnInit {
 					header: 'Error',
 					buttons: ['Vale'],
 					message: 'A ocurrido un error',
-					subHeader: '-----',
+					subHeader: '_____________________________',
 				})
 
 				this.router.navigate(['/home'])

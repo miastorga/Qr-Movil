@@ -4,9 +4,11 @@ import { PerfilComponent } from './components/perfil/perfil.component'
 import {
 	AngularFireAuthGuard,
 	redirectUnauthorizedTo,
+	redirectLoggedInTo,
 } from '@angular/fire/compat/auth-guard'
 import { GenerarQrComponent } from './components/generar-qr/generar-qr.component'
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo([''])
+const redirectLoggedInToHome = () => redirectLoggedInTo(['/home'])
 const routes: Routes = [
 	{
 		path: '',
@@ -17,6 +19,8 @@ const routes: Routes = [
 		path: 'login',
 		loadChildren: () =>
 			import('./pages/login/login.module').then((m) => m.LoginPageModule),
+		canActivate: [AngularFireAuthGuard],
+		data: { authGuardPipe: redirectLoggedInToHome },
 	},
 	{
 		path: 'perfil',

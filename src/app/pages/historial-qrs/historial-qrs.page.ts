@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { Router } from '@angular/router'
 import { Alumno } from 'src/app/interfaces'
-import { FirestorageService } from 'src/app/services/firestorage.service'
 import { FirestoreService } from 'src/app/services/firestore.service'
 
 @Component({

@@ -7,10 +7,33 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <ion-card class="ion-text-center">
-    <ion-card-content>
-      <qrcode [qrdata]="qrString" [width]="256">
-      </qrcode>
-    </ion-card-content>
-  </ion-card>
+  <ion-item>
+    <ion-label position="floating"> Nombre </ion-label>
+    <ion-input style="--padding-bottom: 0px" [(ngModel)]="nombre" type="text"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating"> Asignatura </ion-label>
+    <ion-input style="--padding-bottom: 0px" [(ngModel)]="asignatura" type="text"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating"> Siglas </ion-label>
+    <ion-input style="--padding-bottom: 0px" [(ngModel)]="siglas" type="text"></ion-input>
+  </ion-item>
+
+  <ion-item (click)="showPicker = !showPicker">
+    <ion-label>Fecha</ion-label>
+    <ion-text slot="end">
+      {{formattedString}}
+    </ion-text>
+  </ion-item>
+  <ion-datetime *ngIf="showPicker" #datetime size="cover" (ionChange)="dateChanged(datetime.value)"
+    showDefaultButtons="true" (ionCancel)="showPicker = false">
+  </ion-datetime>
+
+  <ion-item>
+    <ion-label position="floating"> Correo </ion-label>
+    <ion-input style="--padding-bottom: 0px" [(ngModel)]="correo" type="email"></ion-input>
+  </ion-item>
+  <ion-button expand="block" shape="round" color="warning" (click)="generarQr()">Generar qr</ion-button>
+  <qrcode [qrdata]="qrString" [width]="256" style="text-align: center;"> </qrcode>
 </ion-content>

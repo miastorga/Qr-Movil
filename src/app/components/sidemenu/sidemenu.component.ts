@@ -68,6 +68,7 @@ export class SidemenuComponent implements OnInit {
 		}
 		const path = 'Alumnos'
 		const id = this.alumno.id
+		console.log(detallesQr)
 		this.firestoreService.updateHistorial(detallesQr, path, id)
 	}
 

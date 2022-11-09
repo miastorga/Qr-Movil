@@ -1,13 +1,6 @@
 import { Injectable } from '@angular/core'
 import { AngularFirestore } from '@angular/fire/compat/firestore'
-import {
-	arrayUnion,
-	deleteField,
-	updateDoc,
-	doc,
-} from '@angular/fire/firestore'
-import firebase from 'firebase/compat'
-// import { deleteField, FieldValue } from 'firebase/firestore'
+import { arrayUnion, deleteField } from '@angular/fire/firestore'
 import { DetalleQr } from '../interfaces'
 @Injectable({
 	providedIn: 'root',

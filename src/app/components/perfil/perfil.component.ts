@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core'
-import { FirebaseAuthService } from 'src/app/services/firebase-auth.service'
 import { FirestorageService } from 'src/app/services/firestorage.service'
 import { FirestoreService } from 'src/app/services/firestore.service'
 import { InteractionsService } from 'src/app/services/interactions.service'
@@ -17,7 +16,6 @@ export class PerfilComponent implements OnInit {
 	login: boolean = false
 	newFile = ''
 	constructor(
-		public firebaseAuthService: FirebaseAuthService,
 		public firestorage: FirestorageService,
 		public interactions: InteractionsService,
 		public firestore: FirestoreService

@@ -1,24 +1,28 @@
 import { Injectable } from '@angular/core'
-import {
-	setPersistence,
-	Auth,
-	browserLocalPersistence,
-	signInWithEmailAndPassword,
-} from '@angular/fire/auth'
-import { AngularFireAuth, PERSISTENCE } from '@angular/fire/compat/auth'
-
+import { AngularFireAuth } from '@angular/fire/compat/auth'
+import 'firebase/auth'
 @Injectable({
 	providedIn: 'root',
 })
 export class FirebaseAuthService {
+	currentUser = null
 	constructor(
-		private authFirebase: AngularFireAuth, //firebase.auth.Auth
-		private readonly auth: Auth
+		private authFirebase: AngularFireAuth //firebase.auth.Auth
 	) {
 		this.getUID()
+		this.authFirebase.authState.subscribe((user) => {
+			this.currentUser = user
+		})
 	}
 	async logIn(email: string, password: string) {
-		return await this.authFirebase.signInWithEmailAndPassword(email, password)
+		// return this.authFirebase.setPersistence('local').then(() => {
+		// 	return this.authFirebase
+		// 		.signInWithEmailAndPassword(email, password)
+		// 		.then((usercredential) => {
+		// 			return (this.currentUser = usercredential.user)
+		// 		})
+		// })
+		return this.authFirebase.signInWithEmailAndPassword(email, password)
 	}
 
 	async resetPassword(email: string) {
