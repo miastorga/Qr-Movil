@@ -11,10 +11,13 @@
 
 <ion-content>
   <ion-item *ngIf="scannedResult" class="ion-text-center">
+    <p>Detalles qr</p>
     <ion-label>
       {{scannedResult.id}}
       {{scannedResult.profesor}}
-      {{scannedResult.hora}}
+      {{scannedResult.asignatura}}
+      {{scannedResult.correo}}
+      {{scannedResult.siglas}}
     </ion-label>
     <ion-label>
       {{scannedResult}}

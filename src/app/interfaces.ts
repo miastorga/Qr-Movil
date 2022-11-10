@@ -1,9 +1,10 @@
 export interface DetalleQr {
 	id: string
 	profesor: string
-	hora: Date
+	asignatura: string
 	siglas: string
-	detalles?: string
+	correo: string
+	hora?: Date
 }
 export interface Alumno {
 	id: string

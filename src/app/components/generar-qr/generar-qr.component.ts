@@ -9,7 +9,7 @@ import { format, parseISO } from 'date-fns'
 export class GenerarQrComponent implements OnInit {
 	qrString
 	// todo hacer una interface
-	nombre: string
+	profesor: string
 	asignatura: string
 	siglas: string
 	fecha: Date
@@ -51,7 +51,7 @@ export class GenerarQrComponent implements OnInit {
 		console.log(this.formattedString)
 		const infoProfesorObj = {
 			correo: this.correo,
-			nombre: this.nombre,
+			profesor: this.profesor,
 			asignatura: this.asignatura,
 			siglas: this.siglas,
 		}

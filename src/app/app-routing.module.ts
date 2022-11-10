@@ -8,7 +8,7 @@ import {
 } from '@angular/fire/compat/auth-guard'
 import { GenerarQrComponent } from './components/generar-qr/generar-qr.component'
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo([''])
-const redirectLoggedInToHome = () => redirectLoggedInTo(['/home'])
+const redirectLoggedInToHome = () => redirectLoggedInTo(['home'])
 const routes: Routes = [
 	{
 		path: '',

@@ -22,7 +22,7 @@ export class FirebaseAuthService {
 		// 			return (this.currentUser = usercredential.user)
 		// 		})
 		// })
-		return this.authFirebase.signInWithEmailAndPassword(email, password)
+		return await this.authFirebase.signInWithEmailAndPassword(email, password)
 	}
 
 	async resetPassword(email: string) {

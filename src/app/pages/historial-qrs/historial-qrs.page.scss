@@ -3,3 +3,21 @@ ion-header {
 		--background: #f1b634;
 	}
 }
+
+ion-item {
+	padding-bottom: 10px;
+	ion-label {
+		& div {
+			display: flex;
+			align-items: baseline;
+		}
+		& h1 {
+			font-size: 20px;
+			margin: 5px 0px 5px 5px;
+		}
+		& p {
+			font-size: 16px;
+			margin: 5px 0px 5px 5px;
+		}
+	}
+}

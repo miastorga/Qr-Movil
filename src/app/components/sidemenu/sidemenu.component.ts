@@ -28,6 +28,7 @@ export class SidemenuComponent implements OnInit {
 				this.getDatosAlumno(res.uid)
 			} else {
 				console.log('no esta logeado')
+				this.router.navigate([''])
 				this.login = false
 			}
 		})
@@ -49,7 +50,7 @@ export class SidemenuComponent implements OnInit {
 					text: 'Si',
 					handler: async () => {
 						this.firebaseAuthService.logOut()
-						this.router.navigate(['/login'])
+						this.router.navigate([''])
 					},
 				},
 			],
@@ -59,18 +60,6 @@ export class SidemenuComponent implements OnInit {
 	}
 
 	// funcionando
-	actHistorial() {
-		const detallesQr: DetalleQr = {
-			hora: new Date(),
-			profesor: 'detalle con nuevo id',
-			siglas: 'abc-123',
-			id: this.firestoreService.getId(),
-		}
-		const path = 'Alumnos'
-		const id = this.alumno.id
-		console.log(detallesQr)
-		this.firestoreService.updateHistorial(detallesQr, path, id)
-	}
 
 	getDatosAlumno(uid: string) {
 		const path = 'Alumnos'

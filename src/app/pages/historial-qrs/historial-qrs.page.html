@@ -9,23 +9,31 @@
 <!-- <app-filtro></app-filtro> -->
 <ion-content>
   <ion-list *ngIf="alumno.historial">
-    <ion-item slot="header" color="light" *ngFor=" let histo of alumno.historial" style="margin: 10px 0px;">
-      <label style="display: flex; flex-direction: column;">
-        <h5>
-          profesor/a: {{histo.profesor}}
-        </h5>
-        <p>
-          siglas: {{histo.siglas}}
-        </p>
-      </label>
+    <ion-item slot="header" color="light" *ngFor=" let histo of alumno.historial" style="margin: 10px 0px">
+      <ion-label style="display: flex; flex-direction: column">
+        <div>
+          <h1>Profesor/a:</h1>
+          <p>{{histo.profesor}}</p>
+        </div>
+        <div>
+          <h1>Asignatura: </h1>
+          <p>{{histo.asignatura}}</p>
+        </div>
+        <div>
+          <h1>Siglas: </h1>
+          <p>{{histo.siglas}}</p>
+        </div>
+        <div>
+          <h1>Correo: </h1>
+          <p>{{histo.correo}}</p>
+        </div>
+      </ion-label>
     </ion-item>
   </ion-list>
   <ion-item *ngIf="!alumno.historial">
-    <ion-label>
-      no hay historial
-    </ion-label>
+    <ion-label> no hay historial </ion-label>
   </ion-item>
-  <ion-label style="margin-top: auto;">
-    <button (click)=borrarHistorial()>borrar historial</button>
+  <ion-label style="margin-top: auto">
+    <button (click)="borrarHistorial()">borrar historial</button>
   </ion-label>
 </ion-content>
