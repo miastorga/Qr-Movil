@@ -5,6 +5,7 @@ import { FirebaseAuthService } from 'src/app/services/firebase-auth.service'
 import { Alumno, DetalleQr } from 'src/app/interfaces'
 import { FirestoreService } from 'src/app/services/firestore.service'
 import { Subscription } from 'rxjs'
+import { SendEmailService } from 'src/app/services/send-email.service'
 @Component({
 	selector: 'app-sidemenu',
 	templateUrl: './sidemenu.component.html',
@@ -19,7 +20,8 @@ export class SidemenuComponent implements OnInit {
 		public alertController: AlertController,
 		private router: Router,
 		public firebaseAuthService: FirebaseAuthService,
-		public firestoreService: FirestoreService
+		public firestoreService: FirestoreService,
+		public emails: SendEmailService
 	) {
 		this.firebaseAuthService.stateUser().subscribe((res) => {
 			if (res) {

@@ -12,16 +12,16 @@
     <ion-item slot="header" color="light" *ngFor=" let histo of alumno.historial" style="margin: 10px 0px">
       <ion-label style="display: flex; flex-direction: column">
         <div>
-          <h1>Profesor/a:</h1>
-          <p>{{histo.profesor}}</p>
+          <h1>Docente:</h1>
+          <p>{{histo.docente}}</p>
         </div>
         <div>
           <h1>Asignatura: </h1>
           <p>{{histo.asignatura}}</p>
         </div>
         <div>
-          <h1>Siglas: </h1>
-          <p>{{histo.siglas}}</p>
+          <h1>Seccion: </h1>
+          <p>{{histo.seccion}}</p>
         </div>
         <div>
           <h1>Correo: </h1>
@@ -34,6 +34,6 @@
     <ion-label> no hay historial </ion-label>
   </ion-item>
   <ion-label style="margin-top: auto">
-    <button (click)="borrarHistorial()">borrar historial</button>
+    <ion-button (click)="borrarHistorial()" shape="round" expand="block" color="warning">borrar historial</ion-button>
   </ion-label>
 </ion-content>

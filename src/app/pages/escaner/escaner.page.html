@@ -11,16 +11,32 @@
 
 <ion-content>
   <ion-item *ngIf="scannedResult" class="ion-text-center">
-    <p>Detalles qr</p>
-    <ion-label>
-      {{scannedResult.id}}
-      {{scannedResult.profesor}}
-      {{scannedResult.asignatura}}
-      {{scannedResult.correo}}
-      {{scannedResult.siglas}}
-    </ion-label>
-    <ion-label>
-      {{scannedResult}}
+    <ion-label style="display: flex;flex-direction: column;">
+      <div>
+        <p>
+          Id: {{scannedResult.id}}
+        </p>
+      </div>
+      <div>
+        <p>
+          Docente: {{scannedResult.docente}}
+        </p>
+      </div>
+      <div>
+        <p>
+          Asignatura: {{scannedResult.asignatura}}
+        </p>
+      </div>
+      <div>
+        <p>
+          Correo: {{scannedResult.correo}}
+        </p>
+      </div>
+      <div>
+        <p>
+          Seccion: {{scannedResult.seccion}}
+        </p>
+      </div>
     </ion-label>
   </ion-item>
 </ion-content>

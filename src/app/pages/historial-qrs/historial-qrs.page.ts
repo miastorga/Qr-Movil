@@ -23,5 +23,6 @@ export class HistorialQrsPage implements OnInit {
 
 	borrarHistorial() {
 		this.firestore.deleteHistorialQrs('Alumnos', this.alumno.id)
+		this.router.navigate(['/home'])
 	}
 }
