@@ -1,9 +1,9 @@
 <ion-content>
   <div *ngIf="loaded">
     <div style="background-color: #F1B634;" class="user-container">
-      <ion-avatar class="user-profile" *ngIf="!alumno.foto">
+      <div class="user-profile" *ngIf="!alumno.foto">
         <img src='https://avatars.dicebear.com/api/initials/{{alumno.username}}.svg' alt="">
-      </ion-avatar>
+      </div>
       <div class="user-profile" *ngIf="alumno.foto">
         <img [src]='alumno.foto' alt="">
       </div>
