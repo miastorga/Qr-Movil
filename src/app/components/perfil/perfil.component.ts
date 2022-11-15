@@ -34,7 +34,7 @@ export class PerfilComponent implements OnInit {
 			}
 			reader.readAsDataURL(event.target.files[0])
 		}
-		this.interactions.presentLoading('Guardando imganen de perfil')
+		this.interactions.presentLoading('Guardando imagen de perfil')
 		const path = 'Fotos_Perfiles'
 		const name = this.alumno.username
 		const res = await this.firestorage.uploadImage(this.newFile, path, name)

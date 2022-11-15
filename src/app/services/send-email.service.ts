@@ -6,15 +6,16 @@ import { AngularFirestore } from '@angular/fire/compat/firestore'
 export class SendEmailService {
 	constructor(public firestore: AngularFirestore) {}
 
-	sendEmail(correo: string) {
+	sendEmail(correo: string, nombreAlumno: string, tiempo: Array<string>) {
+		const [fecha, hora] = tiempo
 		this.firestore
 			.collection('mail')
 			.add({
 				to: correo,
 				message: {
-					subject: 'Hello from Firebase!',
+					subject: 'RegistrApp',
 					text: 'This is the plaintext section of the email body.',
-					html: 'Probando si enviar correo funciona c:',
+					html: `${nombreAlumno} escaneo el qr el ${fecha} a las ${hora} `,
 				},
 			})
 			.then(() => console.log('Queued email for delivery!'))

@@ -7,7 +7,6 @@ import { IonicModule } from '@ionic/angular'
 import { HistorialQrsPageRoutingModule } from './historial-qrs-routing.module'
 
 import { HistorialQrsPage } from './historial-qrs.page'
-import { FiltroComponent } from 'src/app/components/filtro/filtro.component'
 
 @NgModule({
 	imports: [
@@ -16,6 +15,6 @@ import { FiltroComponent } from 'src/app/components/filtro/filtro.component'
 		IonicModule,
 		HistorialQrsPageRoutingModule,
 	],
-	declarations: [HistorialQrsPage, FiltroComponent],
+	declarations: [HistorialQrsPage],
 })
 export class HistorialQrsPageModule {}
