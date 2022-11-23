@@ -15,13 +15,6 @@ export class FirebaseAuthService {
 		})
 	}
 	async logIn(email: string, password: string) {
-		// return this.authFirebase.setPersistence('local').then(() => {
-		// 	return this.authFirebase
-		// 		.signInWithEmailAndPassword(email, password)
-		// 		.then((usercredential) => {
-		// 			return (this.currentUser = usercredential.user)
-		// 		})
-		// })
 		return await this.authFirebase.signInWithEmailAndPassword(email, password)
 	}
 

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core'
-import { format, parseISO } from 'date-fns'
 import { DetalleQr } from 'src/app/interfaces'
 import { FirestoreService } from 'src/app/services/firestore.service'
 
@@ -28,26 +27,11 @@ export class GenerarQrComponent implements OnInit {
 	]
 	selectedMode = 'date-time'
 	showPicker = false
-	dateValue = format(new Date(), 'yyyy-mm-dd') + 'T09:00:00.000z'
 	formattedString = ''
-	constructor(public firestore: FirestoreService) {
-		this.setToday()
-	}
+	constructor(public firestore: FirestoreService) {}
 
 	ngOnInit() {}
 
-	setToday() {
-		this.formattedString = format(
-			parseISO(format(new Date(), 'yyyy-MM-dd') + 'T09:00:00.000Z'),
-			'HH:mm, MMM d, yyyy'
-		)
-	}
-
-	dateChanged(value) {
-		this.dateValue = value
-		this.formattedString = format(parseISO(value), 'HH:mm, MMM d, yyyy')
-		this.showPicker = false
-	}
 	//  **funciona falta almacenar fecha
 	generarQr() {
 		console.log(this.formattedString)
